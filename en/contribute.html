@@ -25,11 +25,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var order = ['index', 'path', 'quiz', 'contribute'];
+      function where(u) {
+        try { var parts = new URL(u, location.href).pathname.split('/'); return { tab: order.indexOf((parts.pop() || 'index').replace('.html', '')), lang: parts.pop() }; } catch (e) { return null; }
+      }
+      function direction(from, to) {
+        var a = where(from), b = where(to);
+        if (!a || !b || a.tab < 0 || b.tab < 0 || a.tab === b.tab || a.lang !== b.lang) return null;
+        return b.tab > a.tab ? 'forward' : 'backward';
+      }
+      addEventListener('pageswap', function (e) {
+        if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+        var d = direction(location.href, e.activation.entry.url);
+        if (d) e.viewTransition.types.add(d);
+      });
+      addEventListener('pagereveal', function (e) {
+        if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
+        var d = direction(navigation.activation.from.url, location.href);
+        if (d) e.viewTransition.types.add(d);
+      });
+    })();
+  </script>
 </head>
 <body class="page-add">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="backdrop" aria-hidden="true">
     <span class="blob blob--majorelle"></span>
     <span class="blob blob--saffron"></span>
@@ -59,7 +84,7 @@
   <main id="main">
     <div class="container">
       <div class="page-head" data-reveal>
-      <h1 class="page-head__title">Missing a term? Add it.</h1>
+      <h1 class="page-head__title"><span class="word" style="--i:0">Missing</span> <span class="word" style="--i:1">a</span> <span class="word" style="--i:2">term?</span> <span class="word" style="--i:3">Add</span> <span class="word" style="--i:4">it.</span></h1>
       <p class="page-head__lede">Every term lives in one file, <code>tools/terms.mjs</code>, in three languages. Add yours in four steps.</p>
       </div>
     </div>

@@ -36,6 +36,7 @@ Interface text (tabs, buttons, headings) lives in `tools/ui.mjs`. The build stop
 
 ```
 index.html          language redirect
+favicon.svg         site icon
 ar/ fr/ en/         generated pages, four per language
 css/style.css       the liquid glass theme (light and dark)
 js/vendor/          Lenis 1.3.26 smooth scrolling, MIT

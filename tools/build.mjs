@@ -56,6 +56,36 @@ const backdrop = `  <div class="backdrop" aria-hidden="true">
 const themeMeta = `  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f1efe9" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0c18" media="(prefers-color-scheme: dark)">`;
+// Motion hooks: words of a title wrapped for the staggered reveal, a heading inside a soft mask,
+// numbers marked for the count-up. The text itself is unchanged.
+const words = (html) => html.split(' ').map((w, i) => `<span class="word" style="--i:${i}">${w}</span>`).join(' ');
+const wordCount = (html) => html.split(' ').length;
+const masked = (html) => `<span class="slide"><span>${html}</span></span>`;
+const countable = (html) => html.replace(/\d+/, (n) => `<span class="count" data-count="${n}">${n}</span>`);
+// Tab order drives the direction of the page slide (mirrored in Arabic by the CSS).
+const vtScript = `  <script>
+    (function () {
+      var order = ['index', 'path', 'quiz', 'contribute'];
+      function where(u) {
+        try { var parts = new URL(u, location.href).pathname.split('/'); return { tab: order.indexOf((parts.pop() || 'index').replace('.html', '')), lang: parts.pop() }; } catch (e) { return null; }
+      }
+      function direction(from, to) {
+        var a = where(from), b = where(to);
+        if (!a || !b || a.tab < 0 || b.tab < 0 || a.tab === b.tab || a.lang !== b.lang) return null;
+        return b.tab > a.tab ? 'forward' : 'backward';
+      }
+      addEventListener('pageswap', function (e) {
+        if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+        var d = direction(location.href, e.activation.entry.url);
+        if (d) e.viewTransition.types.add(d);
+      });
+      addEventListener('pagereveal', function (e) {
+        if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
+        var d = direction(navigation.activation.from.url, location.href);
+        if (d) e.viewTransition.types.add(d);
+      });
+    })();
+  </script>`;
 const byId = Object.fromEntries(terms.map((t) => [t.id, t]));
 
 // One page: head, header with the tabs and the language switcher, the page's own content, footer, bottom tab bar.
@@ -91,11 +121,14 @@ ${themeMeta}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?${fonts[lang]}&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
   <script>document.documentElement.classList.add('js');</script>
+${vtScript}
 </head>
 <body class="page-${key}">
   <a class="skip" href="#main">${u.skip}</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 ${backdrop}
 
   <header class="site-header">
@@ -178,8 +211,8 @@ const entry = (t, lang) => {
 
 const dictionary = (lang) => {
   const u = ui[lang];
-  const chips = [`            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">${u.all} <span class="chip__n">${terms.length}</span></label>`]
-    .concat(cats.map((c) => `            <input type="radio" name="cat" id="cat-${c.id}" value="${c.id}"><label for="cat-${c.id}">${typo(c[lang], lang)} <span class="chip__n">${terms.filter((t) => t.cat === c.id).length}</span></label>`))
+  const chips = [`            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">${u.all} <span class="chip__n count" data-count="${terms.length}">${terms.length}</span></label>`]
+    .concat(cats.map((c) => `            <input type="radio" name="cat" id="cat-${c.id}" value="${c.id}"><label for="cat-${c.id}">${typo(c[lang], lang)} <span class="chip__n count" data-count="${terms.filter((t) => t.cat === c.id).length}">${terms.filter((t) => t.cat === c.id).length}</span></label>`))
     .join('\n');
   const groups = cats.map((c) => `      <section class="group" data-group="${c.id}" aria-labelledby="g-${c.id}">
         <h3 class="group__head" id="g-${c.id}">${typo(c[lang], lang)}</h3>
@@ -191,8 +224,8 @@ ${terms.filter((t) => t.cat === c.id).map((t) => entry(t, lang)).join('\n')}
     description: u.description,
     top: `    <div class="container">
       <div class="hero" data-reveal>
-        <h1 class="hero__head">${typo(u.headline, lang)}</h1>
-        <p class="hero__lede">${typo(u.lede, lang)}</p>
+        <h1 class="hero__head" style="--n:${wordCount(typo(u.headline, lang))}">${words(typo(u.headline, lang))}</h1>
+        <p class="hero__lede">${countable(typo(u.lede, lang))}</p>
       </div>
     </div>`,
     main: `    <div class="lookup">
@@ -214,7 +247,7 @@ ${chips}
 
       <section class="qamous container" id="dictionary" aria-labelledby="dictionary-head">
         <div class="qamous__top" data-reveal>
-          <h2 class="qamous__head" id="dictionary-head">${typo(u.dictHead, lang)}</h2>
+          <h2 class="qamous__head" id="dictionary-head">${masked(typo(u.dictHead, lang))}</h2>
           <p class="qamous__status" id="status" role="status">${typo(u.hint, lang)}</p>
         </div>
 
@@ -241,7 +274,7 @@ const pathPage = (lang) => {
   return layout(lang, 'path', {
     title: pageTitle(lang, 'path'),
     description: u.pathText,
-    top: pageHead(`      <h1 class="page-head__title">${typo(u.pathHead, lang)}</h1>
+    top: pageHead(`      <h1 class="page-head__title">${words(typo(u.pathHead, lang))}</h1>
       <p class="page-head__lede">${typo(u.pathText, lang)}</p>`),
     main: `    <section class="path container" aria-labelledby="stages-head">
       <div class="progress" data-reveal>
@@ -249,7 +282,7 @@ const pathPage = (lang) => {
         <div class="meter" aria-hidden="true"><span class="meter__fill" id="meter"></span></div>
         <p class="progress__how">${typo(u.pathHow, lang)}</p>
       </div>
-      <h2 class="path__head" id="stages-head" data-reveal>${typo(u.stagesHead, lang)}</h2>
+      <h2 class="path__head" id="stages-head">${masked(typo(u.stagesHead, lang))}</h2>
       <ol class="path__stops">
 ${stops}
       </ol>
@@ -264,7 +297,7 @@ const quizPage = (lang) => {
   return layout(lang, 'quiz', {
     title: pageTitle(lang, 'quiz'),
     description: `${u.quizHead} ${u.quizText}`,
-    top: pageHead(`      <h1 class="page-head__title">${typo(u.quizHead, lang)}</h1>
+    top: pageHead(`      <h1 class="page-head__title">${words(typo(u.quizHead, lang))}</h1>
       <p class="page-head__lede">${typo(u.quizText, lang)}</p>
       <p class="quiz__score" id="quiz-score" aria-live="polite"></p>`),
     main: `    <section class="quiz container" aria-label="${attr(u.tabs.quiz)}">
@@ -289,7 +322,7 @@ const contributePage = (lang) => {
   return layout(lang, 'add', {
     title: pageTitle(lang, 'add'),
     description: plain(u.addText),
-    top: pageHead(`      <h1 class="page-head__title">${typo(u.addHead, lang)}</h1>
+    top: pageHead(`      <h1 class="page-head__title">${words(typo(u.addHead, lang))}</h1>
       <p class="page-head__lede">${typeset(u.addText, lang)}</p>`),
     main: `    <section class="steps container" aria-label="${attr(u.tabs.add)}">
       <p class="steps__repo" data-reveal>${typo(u.repoLine, lang)} <a href="${repo}" dir="ltr">${repo.replace('https://', '')}</a></p>
@@ -341,6 +374,7 @@ ${langs.map((l) => `  <link rel="alternate" hreflang="${l}" href="${site}${l}/">
   </script>
 ${themeMeta}
   <link href="https://fonts.googleapis.com/css2?${fonts.ar}&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="pick">

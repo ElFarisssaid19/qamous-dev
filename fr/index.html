@@ -25,11 +25,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../css/style.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var order = ['index', 'path', 'quiz', 'contribute'];
+      function where(u) {
+        try { var parts = new URL(u, location.href).pathname.split('/'); return { tab: order.indexOf((parts.pop() || 'index').replace('.html', '')), lang: parts.pop() }; } catch (e) { return null; }
+      }
+      function direction(from, to) {
+        var a = where(from), b = where(to);
+        if (!a || !b || a.tab < 0 || b.tab < 0 || a.tab === b.tab || a.lang !== b.lang) return null;
+        return b.tab > a.tab ? 'forward' : 'backward';
+      }
+      addEventListener('pageswap', function (e) {
+        if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+        var d = direction(location.href, e.activation.entry.url);
+        if (d) e.viewTransition.types.add(d);
+      });
+      addEventListener('pagereveal', function (e) {
+        if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
+        var d = direction(navigation.activation.from.url, location.href);
+        if (d) e.viewTransition.types.add(d);
+      });
+    })();
+  </script>
 </head>
 <body class="page-dict">
   <a class="skip" href="#main">Aller au contenu</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="backdrop" aria-hidden="true">
     <span class="blob blob--majorelle"></span>
     <span class="blob blob--saffron"></span>
@@ -59,8 +84,8 @@
   <main id="main">
     <div class="container">
       <div class="hero" data-reveal>
-        <h1 class="hero__head">API ? Comme le serveur du café.</h1>
-        <p class="hero__lede">40 notions de programmation, expliquées par des scènes de la vie marocaine.</p>
+        <h1 class="hero__head" style="--n:6"><span class="word" style="--i:0">API ?</span> <span class="word" style="--i:1">Comme</span> <span class="word" style="--i:2">le</span> <span class="word" style="--i:3">serveur</span> <span class="word" style="--i:4">du</span> <span class="word" style="--i:5">café.</span></h1>
+        <p class="hero__lede"><span class="count" data-count="40">40</span> notions de programmation, expliquées par des scènes de la vie marocaine.</p>
       </div>
     </div>
     <div class="lookup">
@@ -75,21 +100,21 @@
           </form>
           <fieldset class="chips" data-lenis-prevent>
             <legend class="visually-hidden">Thème</legend>
-            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">Tout <span class="chip__n">40</span></label>
-            <input type="radio" name="cat" id="cat-basics" value="basics"><label for="cat-basics">Bases <span class="chip__n">6</span></label>
-            <input type="radio" name="cat" id="cat-git" value="git"><label for="cat-git">Git <span class="chip__n">7</span></label>
-            <input type="radio" name="cat" id="cat-web" value="web"><label for="cat-web">Web et API <span class="chip__n">7</span></label>
-            <input type="radio" name="cat" id="cat-front" value="front"><label for="cat-front">Frontend <span class="chip__n">7</span></label>
-            <input type="radio" name="cat" id="cat-data" value="data"><label for="cat-data">Données <span class="chip__n">5</span></label>
-            <input type="radio" name="cat" id="cat-devops" value="devops"><label for="cat-devops">DevOps <span class="chip__n">5</span></label>
-            <input type="radio" name="cat" id="cat-security" value="security"><label for="cat-security">Sécurité <span class="chip__n">3</span></label>
+            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">Tout <span class="chip__n count" data-count="40">40</span></label>
+            <input type="radio" name="cat" id="cat-basics" value="basics"><label for="cat-basics">Bases <span class="chip__n count" data-count="6">6</span></label>
+            <input type="radio" name="cat" id="cat-git" value="git"><label for="cat-git">Git <span class="chip__n count" data-count="7">7</span></label>
+            <input type="radio" name="cat" id="cat-web" value="web"><label for="cat-web">Web et API <span class="chip__n count" data-count="7">7</span></label>
+            <input type="radio" name="cat" id="cat-front" value="front"><label for="cat-front">Frontend <span class="chip__n count" data-count="7">7</span></label>
+            <input type="radio" name="cat" id="cat-data" value="data"><label for="cat-data">Données <span class="chip__n count" data-count="5">5</span></label>
+            <input type="radio" name="cat" id="cat-devops" value="devops"><label for="cat-devops">DevOps <span class="chip__n count" data-count="5">5</span></label>
+            <input type="radio" name="cat" id="cat-security" value="security"><label for="cat-security">Sécurité <span class="chip__n count" data-count="3">3</span></label>
           </fieldset>
         </div>
       </div>
 
       <section class="qamous container" id="dictionary" aria-labelledby="dictionary-head">
         <div class="qamous__top" data-reveal>
-          <h2 class="qamous__head" id="dictionary-head">Du bocal de sucre au bracelet de Mawazine</h2>
+          <h2 class="qamous__head" id="dictionary-head"><span class="slide"><span>Du bocal de sucre au bracelet de Mawazine</span></span></h2>
           <p class="qamous__status" id="status" role="status">Cliquez sur un terme pour l’ouvrir.</p>
         </div>
 
