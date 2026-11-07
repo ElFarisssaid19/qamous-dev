@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qamous Dev, la programmation expliquée par la vie marocaine</title>
+  <meta name="description" content="40 notions de programmation (Git, API, Docker, JWT, React, SQL JOIN), expliquées par des scènes de la vie marocaine et de petits exemples de code.">
+  <link rel="canonical" href="https://elfarisssaid19.github.io/qamous-dev/fr/">
+  <link rel="alternate" hreflang="ar" href="https://elfarisssaid19.github.io/qamous-dev/ar/">
+  <link rel="alternate" hreflang="fr" href="https://elfarisssaid19.github.io/qamous-dev/fr/">
+  <link rel="alternate" hreflang="en" href="https://elfarisssaid19.github.io/qamous-dev/en/">
+  <link rel="alternate" hreflang="x-default" href="https://elfarisssaid19.github.io/qamous-dev/">
+  <meta property="og:site_name" content="Qamous Dev">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Qamous Dev, la programmation expliquée par la vie marocaine">
+  <meta property="og:description" content="40 notions de programmation (Git, API, Docker, JWT, React, SQL JOIN), expliquées par des scènes de la vie marocaine et de petits exemples de code.">
+  <meta property="og:url" content="https://elfarisssaid19.github.io/qamous-dev/fr/">
+  <meta property="og:locale" content="fr_MA">
+  <meta property="og:locale:alternate" content="ar_MA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f1efe9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0c18" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="page-dict">
+  <a class="skip" href="#main">Aller au contenu</a>
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob--majorelle"></span>
+    <span class="blob blob--saffron"></span>
+    <span class="blob blob--mint"></span>
+    <span class="blob blob--sky"></span>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Menu principal">
+      <a class="wordmark" href="./" aria-label="Qamous Dev, dictionnaire" dir="ltr">Qamous Dev</a>
+      <div class="nav__rows">
+        <ul class="nav__links">
+          <li><a href="./" aria-current="page"><span>Dictionnaire</span></a></li>
+          <li><a href="path.html"><span>Parcours</span></a></li>
+          <li><a href="quiz.html"><span>Teste-toi</span></a></li>
+          <li><a href="contribute.html"><span>Ajouter un mot</span></a></li>
+        </ul>
+        <ul class="langs" aria-label="Langue">
+          <li><a href="../ar/" hreflang="ar" lang="ar" dir="rtl">العربية</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" dir="ltr" aria-current="page">Français</a></li>
+          <li><a href="../en/" hreflang="en" lang="en" dir="ltr">English</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="hero" data-reveal>
+        <h1 class="hero__head">API ? Comme le serveur du café.</h1>
+        <p class="hero__lede">40 notions de programmation, expliquées par des scènes de la vie marocaine.</p>
+      </div>
+    </div>
+    <div class="lookup">
+      <div class="toolbar">
+        <div class="toolbar__inner container">
+          <form class="search" role="search" action="./">
+            <label class="search__label" for="q">Chercher un terme</label>
+            <div class="search__field">
+              <input id="q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="git, api, docker, jointure…" aria-keyshortcuts="/" aria-describedby="status">
+              <kbd class="search__key" aria-hidden="true">/</kbd>
+            </div>
+          </form>
+          <fieldset class="chips" data-lenis-prevent>
+            <legend class="visually-hidden">Thème</legend>
+            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">Tout <span class="chip__n">40</span></label>
+            <input type="radio" name="cat" id="cat-basics" value="basics"><label for="cat-basics">Bases <span class="chip__n">6</span></label>
+            <input type="radio" name="cat" id="cat-git" value="git"><label for="cat-git">Git <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-web" value="web"><label for="cat-web">Web et API <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-front" value="front"><label for="cat-front">Frontend <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-data" value="data"><label for="cat-data">Données <span class="chip__n">5</span></label>
+            <input type="radio" name="cat" id="cat-devops" value="devops"><label for="cat-devops">DevOps <span class="chip__n">5</span></label>
+            <input type="radio" name="cat" id="cat-security" value="security"><label for="cat-security">Sécurité <span class="chip__n">3</span></label>
+          </fieldset>
+        </div>
+      </div>
+
+      <section class="qamous container" id="dictionary" aria-labelledby="dictionary-head">
+        <div class="qamous__top" data-reveal>
+          <h2 class="qamous__head" id="dictionary-head">Du bocal de sucre au bracelet de Mawazine</h2>
+          <p class="qamous__status" id="status" role="status">Cliquez sur un terme pour l’ouvrir.</p>
+        </div>
+
+        <div class="empty" id="empty" hidden>
+          <p class="empty__head" id="empty-head"></p>
+          <p>Essayez le nom anglais, comme merge ou commit.</p>
+          <button class="btn btn--quiet" type="button" id="clear">Effacer la recherche</button>
+        </div>
+
+      <section class="group" data-group="basics" aria-labelledby="g-basics">
+        <h3 class="group__head" id="g-basics">Bases</h3>
+        <details class="entry" id="variable" data-cat="basics" data-terms="Variable var let const Variable le bocal de sucre dans la cuisine" data-reveal>
+          <summary>
+            <span class="entry__term">Variable<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le bocal de sucre dans la cuisine</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le bocal de sucre dans la cuisine : l’étiquette dit « sucre », et quand il est vide, on le remplit. Le nom reste, le contenu change.</p>
+              <p class="entry__text">Une variable est un emplacement nommé en mémoire qui garde une valeur, pour la réutiliser plus tard. Sa valeur peut changer quand on veut.</p>
+              <label class="got"><input type="checkbox" data-got="variable"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>let price = 5;       <span class="c">// thé à la menthe : 5 dirhams</span>
+price = 6;           <span class="c">// le prix a augmenté</span>
+console.log(price);  <span class="c">// 6</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="function" data-cat="basics" data-terms="Function fonction method methode Fonction la vendeuse de msemmen" data-reveal>
+          <summary>
+            <span class="entry__term">Fonction<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Function</span></span>
+            <span class="entry__scene">Comme la vendeuse de msemmen</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la vendeuse de msemmen au souk : vous lui donnez la pâte (l’entrée), elle vous rend un msemmen (la sortie). Inutile de savoir comment elle s’y prend.</p>
+              <p class="entry__text">Une fonction est un ensemble d’instructions qui porte un nom. On l’écrit une fois, puis on l’appelle autant de fois qu’on veut, avec des valeurs différentes.</p>
+              <label class="got"><input type="checkbox" data-got="function"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>function add(a, b) {
+  return a + b;
+}
+
+add(2, 3);  <span class="c">// 5</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="loop" data-cat="basics" data-terms="Loop boucle for while Boucle le porteur d'eau de Jemaa el-Fna" data-reveal>
+          <summary>
+            <span class="entry__term">Boucle<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Loop</span></span>
+            <span class="entry__scene">Comme le porteur d’eau de Jemaa el-Fna</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le porteur d’eau de Jemaa el-Fna : il passe d’une personne à l’autre, sert un gobelet à chacune, et s’arrête quand l’outre est vide.</p>
+              <p class="entry__text">Une boucle répète le même travail plusieurs fois sans réécrire le code. Elle s’arrête quand les éléments sont épuisés ou qu’une condition devient fausse.</p>
+              <label class="got"><input type="checkbox" data-got="loop"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const notes = [10, 20, 50];
+
+for (const note of notes) {
+  console.log(note + " dh");
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="array" data-cat="basics" data-terms="Array tableau liste list index Tableau les places d'un grand taxi" data-reveal>
+          <summary>
+            <span class="entry__term">Tableau<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Array</span></span>
+            <span class="entry__scene">Comme les places d’un grand taxi</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme les places d’un grand taxi : chaque place a un numéro, et la première, à côté du chauffeur, porte le numéro 0.</p>
+              <p class="entry__text">Un tableau est une liste ordonnée de valeurs dans une seule variable, chacune repérée par un numéro (son index). L’index commence à 0, pas à 1.</p>
+              <label class="got"><input type="checkbox" data-got="array"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const veggies = ["tomato", "potato", "carrot"];
+
+veggies[0];       <span class="c">// "tomato"</span>
+veggies.length;   <span class="c">// 3</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="bug" data-cat="basics" data-terms="Bug debug debugging erreur error Bug la liste de courses incomplète" data-reveal>
+          <summary>
+            <span class="entry__term">Bug<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la liste de courses incomplète</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme envoyer quelqu’un chez l’épicier avec une liste qui dit « 2 pommes de terre » alors que vous vouliez 2 kilos : il rapporte deux pommes de terre. Il a fait ce que vous avez écrit, pas ce que vous vouliez.</p>
+              <p class="entry__text">Un bug est une erreur dans le code qui fait faire au programme autre chose que prévu. Le débogage consiste à en trouver la cause et à la corriger.</p>
+              <label class="got"><input type="checkbox" data-got="bug"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const total = "10" + 5;
+console.log(total);  <span class="c">// "105", pas 15</span>
+
+<span class="c">// correction : Number("10") + 5</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="async-await" data-cat="basics" data-terms="Async/await async await promise asynchrone Async/await les vêtements au pressing" data-reveal>
+          <summary>
+            <span class="entry__term">Async/await<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme les vêtements au pressing</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme déposer vos vêtements au pressing : vous ne restez pas assis à attendre. Vous faites autre chose, et on vous appelle quand c’est prêt.</p>
+              <p class="entry__text">Async/await permet d’attendre une opération lente (une réponse du serveur, par exemple) sans bloquer tout le programme. « await » veut dire : attends ici que le résultat arrive.</p>
+              <label class="got"><input type="checkbox" data-got="async-await"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>async function getMenu() {
+  const res = await fetch("/api/menu");
+  const data = await res.json();
+  return data;
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="git" aria-labelledby="g-git">
+        <h3 class="group__head" id="g-git">Git</h3>
+        <details class="entry" id="git" data-cat="git" data-terms="Git version control versioning Git le cahier de textes" data-reveal>
+          <summary>
+            <span class="entry__term">Git<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le cahier de textes</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le cahier de textes à l’école : chaque leçon y est notée avec sa date. Absent une semaine ? On l’ouvre et on sait exactement où la classe s’est arrêtée.</p>
+              <p class="entry__text">Git est un outil qui enregistre chaque modification de votre code. On peut revenir à n’importe quelle version précédente et travailler à plusieurs sur le même projet sans écraser le travail des autres.</p>
+              <label class="got"><input type="checkbox" data-got="git"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git init
+git status
+git log --oneline</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="repository" data-cat="git" data-terms="Repository repo depot github gitlab Dépôt l'album photo de famille" data-reveal>
+          <summary>
+            <span class="entry__term">Dépôt<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Repository</span></span>
+            <span class="entry__scene">Comme l’album photo de famille</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme l’album photo de la famille : il garde les photos d’aujourd’hui et celles d’autrefois, bien rangées, et chacun dans la famille peut en avoir sa copie.</p>
+              <p class="entry__text">Un dépôt (repository, ou repo) est le dossier du projet avec tout l’historique que Git conserve. Il y a un dépôt local sur votre ordinateur et un dépôt distant sur GitHub ou GitLab.</p>
+              <label class="got"><input type="checkbox" data-got="repository"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>mkdir my-project &amp;&amp; cd my-project
+git init
+git remote add origin https://github.com/user/my-project.git</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="commit" data-cat="git" data-terms="Commit git commit snapshot Commit une photo du tajine à chaque étape" data-reveal>
+          <summary>
+            <span class="entry__term">Commit<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme une photo du tajine à chaque étape</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme photographier le tajine de votre mère à chaque étape : les légumes, puis la viande, puis le plat prêt. S’il brûle ensuite, vous savez où revenir.</p>
+              <p class="entry__text">Un commit est un instantané de votre code à un moment donné, avec un message qui explique ce qui a changé. Chaque commit a son identifiant, et on peut y revenir à tout moment.</p>
+              <label class="got"><input type="checkbox" data-got="commit"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git add index.html
+git commit -m "Add contact page"</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="branch" data-cat="git" data-terms="Branch branche git switch checkout Branche une ruelle de la vieille médina" data-reveal>
+          <summary>
+            <span class="entry__term">Branche<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Branch</span></span>
+            <span class="entry__scene">Comme une ruelle de la vieille médina</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme une ruelle de la vieille médina : vous quittez la grande rue, vous vous promenez dans la ruelle, puis vous revenez sur la même rue. La grande rue n’a pas changé.</p>
+              <p class="entry__text">Une branche est une ligne de travail séparée du code principal (main). On y essaie une nouvelle fonctionnalité sans casser la version qui marche.</p>
+              <label class="got"><input type="checkbox" data-got="branch"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git switch -c feature/login
+<span class="c"># ... travailler et faire des commits ...</span>
+git switch main</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="merge" data-cat="git" data-terms="Merge fusion conflict conflit rebase Fusion (merge) deux couturières sur un caftan" data-reveal>
+          <summary>
+            <span class="entry__term">Fusion (merge)<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Merge</span></span>
+            <span class="entry__scene">Comme deux couturières sur un caftan</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme deux couturières sur le même caftan : l’une fait les manches, l’autre le devant, et à la fin on assemble. Si les deux ont cousu au même endroit, il faut trancher.</p>
+              <p class="entry__text">Le merge réunit le travail d’une branche dans une autre. Si les deux côtés ont modifié les mêmes lignes, Git s’arrête et vous demande de choisir (un conflit de fusion).</p>
+              <label class="got"><input type="checkbox" data-got="merge"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git switch main
+git merge feature/login</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="pull-request" data-cat="git" data-terms="Pull request pr merge request mr code review Pull request une demande au moqaddem" data-reveal>
+          <summary>
+            <span class="entry__term">Pull request<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme une demande au moqaddem</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme une demande déposée chez le moqaddem : il l’examine, vous la renvoie peut-être avec des corrections, et quand tout est en ordre, il la signe.</p>
+              <p class="entry__text">Une pull request (PR) est une demande sur GitHub pour intégrer le travail de votre branche dans main. Vos collègues lisent le code, commentent, puis l’approuvent.</p>
+              <label class="got"><input type="checkbox" data-got="pull-request"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git push -u origin feature/login
+gh pr create --title "Add login"</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="clone" data-cat="git" data-terms="Clone git clone download telecharger fork Clone la recette de harira de grand-mère" data-reveal>
+          <summary>
+            <span class="entry__term">Clone<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la recette de harira de grand-mère</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme recopier la recette de harira de votre grand-mère dans les moindres détails : vous avez votre copie à modifier comme vous voulez, et l’original reste chez elle.</p>
+              <p class="entry__text">Cloner, c’est télécharger une copie complète d’un dépôt GitHub sur votre ordinateur, avec tout son historique, pour travailler en local.</p>
+              <label class="got"><input type="checkbox" data-got="clone"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>git clone https://github.com/user/project.git
+cd project</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="web" aria-labelledby="g-web">
+        <h3 class="group__head" id="g-web">Web et API</h3>
+        <details class="entry" id="http" data-cat="web" data-terms="HTTP https request response get post protocol protocole HTTP une lettre à la poste" data-reveal>
+          <summary>
+            <span class="entry__term">HTTP<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme une lettre à la poste</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme une lettre à la poste : elle porte une adresse (l’URL), un type de demande (GET ou POST) et un contenu, et la réponse revient dans une autre lettre.</p>
+              <p class="entry__text">HTTP est le protocole qu’utilise le navigateur pour parler au serveur. Le navigateur envoie une requête (GET, POST…), le serveur renvoie une réponse avec un code de statut et des données.</p>
+              <label class="got"><input type="checkbox" data-got="http"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTTP</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>GET /api/terms HTTP/1.1
+Host: example.com
+Accept: application/json</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="api" data-cat="web" data-terms="API application programming interface interface API le serveur du café" data-reveal>
+          <summary>
+            <span class="entry__term">API<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le serveur du café</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le serveur au café : vous n’entrez jamais en cuisine. Vous lui dites « un café au lait et un msemmen », il va en cuisine et vous rapporte votre commande.</p>
+              <p class="entry__text">Une API permet à un programme de parler à un autre. Elle dit ce qu’on peut demander, comment le demander et ce qu’on recevra, sans savoir ce qui se passe à l’intérieur.</p>
+              <label class="got"><input type="checkbox" data-got="api"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const res = await fetch("https://api.example.com/weather");
+const weather = await res.json();
+
+console.log(weather.temperature);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="rest" data-cat="web" data-terms="REST restful api crud get post put delete REST la carte du café" data-reveal>
+          <summary>
+            <span class="entry__term">REST<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la carte du café</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la carte d’un café : chaque article a un nom (thé, café, jus), et il n’existe que quelques actions connues : commander, ajouter, modifier, annuler.</p>
+              <p class="entry__text">REST est une façon courante de concevoir une API : chaque chose a une URL (une ressource), et on utilise les verbes HTTP : GET pour lire, POST pour ajouter, PUT pour modifier, DELETE pour supprimer.</p>
+              <label class="got"><input type="checkbox" data-got="rest"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTTP</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>GET    /terms       <span class="c"># tout lire</span>
+GET    /terms/42    <span class="c"># en lire un</span>
+POST   /terms       <span class="c"># en ajouter un</span>
+DELETE /terms/42    <span class="c"># le supprimer</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="json" data-cat="web" data-terms="JSON javascript object notation format data objet JSON la liste de courses de maman" data-reveal>
+          <summary>
+            <span class="entry__term">JSON<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la liste de courses de maman</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la liste de courses que votre mère vous écrit : pain 4, thé 1, sucre 2 kilos. Chaque article avec son nom et sa quantité.</p>
+              <p class="entry__text">JSON est un format texte qui organise les données en clés et valeurs (clé : valeur). Facile à lire pour un humain comme pour une machine, il est utilisé par presque toutes les API.</p>
+              <label class="got"><input type="checkbox" data-got="json"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JSON</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>{
+  "bread": 4,
+  "tea": 1,
+  "sugar_kg": 2,
+  "paid": false
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="endpoint" data-cat="web" data-terms="Endpoint route url api Endpoint les guichets de l'arrondissement" data-reveal>
+          <summary>
+            <span class="entry__term">Endpoint<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme les guichets de l’arrondissement</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme les guichets de l’arrondissement : un pour la carte nationale, un pour l’état civil. Chacun fait une seule chose, et il faut aller au bon.</p>
+              <p class="entry__text">Un endpoint est une URL précise d’une API qui accomplit une tâche. Chaque endpoint a une méthode (GET, POST…) et renvoie des données précises.</p>
+              <label class="got"><input type="checkbox" data-got="endpoint"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>app.get("/api/terms/:id", (req, res) =&gt; {
+  res.json(terms[req.params.id]);
+});</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="status-code" data-cat="web" data-terms="Status code 200 404 500 401 403 http error erreur Code de statut la réponse de l'épicier" data-reveal>
+          <summary>
+            <span class="entry__term">Code de statut<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Status code</span></span>
+            <span class="entry__scene">Comme la réponse de l’épicier</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme les réponses de l’épicier du coin : 200 « tenez », 404 « on n’en a pas », 401 « payez d’abord », 500 « le frigo est en panne », et là, le problème est chez lui, pas chez vous.</p>
+              <p class="entry__text">Un code de statut est un nombre que le serveur renvoie avec chaque réponse pour dire ce qui s’est passé : 200 tout va bien, 404 introuvable, 500 erreur du serveur.</p>
+              <label class="got"><input type="checkbox" data-got="status-code"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const res = await fetch("/api/terms/999");
+
+if (res.status === 404) {
+  console.log("Ce terme n'existe pas");
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="cors" data-cat="web" data-terms="CORS cross origin access-control-allow-origin CORS le gardien de la résidence" data-reveal>
+          <summary>
+            <span class="entry__term">CORS<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le gardien de la résidence</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le gardien à l’entrée d’une résidence : il ne laisse pas entrer n’importe qui. Il faut qu’un habitant lui dise « cette personne est avec moi ».</p>
+              <p class="entry__text">CORS est une règle du navigateur qui empêche un site de récupérer des données d’un autre domaine, sauf si le serveur de ce domaine l’autorise avec l’en-tête Access-Control-Allow-Origin.</p>
+              <label class="got"><input type="checkbox" data-got="cors"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code><span class="c">// côté serveur (Express)</span>
+res.set("Access-Control-Allow-Origin", "https://example.com");</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="front" aria-labelledby="g-front">
+        <h3 class="group__head" id="g-front">Frontend</h3>
+        <details class="entry" id="html" data-cat="front" data-terms="HTML balise tag page web markup HTML les murs d'une maison" data-reveal>
+          <summary>
+            <span class="entry__term">HTML<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme les murs d’une maison</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la construction d’une maison : les murs, les portes, le toit. Elle n’est ni peinte ni meublée, mais elle tient debout.</p>
+              <p class="entry__text">HTML est le langage qui construit la structure d’une page web : titres, paragraphes, images, boutons. Chaque élément est placé dans une balise.</p>
+              <label class="got"><input type="checkbox" data-got="html"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTML</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>&lt;h1&gt;Bienvenue&lt;/h1&gt;
+&lt;p&gt;Mon premier site.&lt;/p&gt;
+&lt;button&gt;Cliquez ici&lt;/button&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="css" data-cat="front" data-terms="CSS style design flexbox grid CSS la peinture et le zellige" data-reveal>
+          <summary>
+            <span class="entry__term">CSS<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la peinture et le zellige</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Si HTML est la structure de la maison, CSS en est la peinture, le zellige et les meubles. Même maison, mais chacun la décore à son goût.</p>
+              <p class="entry__text">CSS est le langage qui met en forme le HTML : couleurs, polices, espacements, et l’affichage sur téléphone ou sur ordinateur.</p>
+              <label class="got"><input type="checkbox" data-got="css"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>CSS</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>h1 {
+  font-size: 2rem;
+  text-align: center;
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="dom" data-cat="front" data-terms="DOM document object model queryselector element DOM l'arbre généalogique" data-reveal>
+          <summary>
+            <span class="entry__term">DOM<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme l’arbre généalogique</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme un arbre généalogique : les grands-parents, puis leurs enfants, puis les petits-enfants. Pour changer quelqu’un, on le retrouve à sa place dans l’arbre.</p>
+              <p class="entry__text">Le DOM est la représentation d’une page HTML dans la mémoire du navigateur, sous forme d’arbre d’éléments. JavaScript agit sur le DOM pour modifier l’affichage sans recharger la page.</p>
+              <label class="got"><input type="checkbox" data-got="dom"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const title = document.querySelector("h1");
+title.textContent = "Bonjour";</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="component" data-cat="front" data-terms="Component composant react vue jsx Composant le moule à briques" data-reveal>
+          <summary>
+            <span class="entry__term">Composant<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Component</span></span>
+            <span class="entry__scene">Comme le moule à briques</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme un moule à briques : on ne façonne pas chaque brique à la main. On fabrique le moule une fois et on le remplit autant qu’il faut.</p>
+              <p class="entry__text">Dans React, un composant est un morceau d’interface (bouton, carte, menu) avec son propre code et son style. On le crée une fois et on le réutilise à plusieurs endroits.</p>
+              <label class="got"><input type="checkbox" data-got="component"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>function Button({ label }) {
+  return &lt;button className="btn"&gt;{label}&lt;/button&gt;;
+}
+
+&lt;Button label="Envoyer" /&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="state" data-cat="front" data-terms="State usestate react etat État (state) le tableau d'affichage du stade" data-reveal>
+          <summary>
+            <span class="entry__term">État (state)<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">State</span></span>
+            <span class="entry__scene">Comme le tableau d’affichage du stade</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le tableau d’affichage au stade : à chaque but, le chiffre change et le tableau se met à jour tout seul. Même match, seul le score a bougé.</p>
+              <p class="entry__text">Le state est une donnée qu’un composant garde et qui change avec le temps (comme le nombre de clics sur un bouton). Quand le state change, React redessine le composant de lui-même.</p>
+              <label class="got"><input type="checkbox" data-got="state"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const [goals, setGoals] = useState(0);
+
+&lt;button onClick={() =&gt; setGoals(goals + 1)}&gt;
+  Goals: {goals}
+&lt;/button&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="props" data-cat="front" data-terms="Props properties proprietes react parent enfant child Props la commande du chef" data-reveal>
+          <summary>
+            <span class="entry__term">Props<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la commande du chef</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la commande que le chef vous donne au restaurant : « trois tajines à la viande ». Vous préparez ce qu’on vous a dit, vous ne changez pas la commande.</p>
+              <p class="entry__text">Les props sont les valeurs qu’un composant parent transmet à un composant enfant. L’enfant les lit sans jamais les modifier : si quelque chose doit changer, c’est le parent qui s’en charge.</p>
+              <label class="got"><input type="checkbox" data-got="props"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>function Tagine({ kind, count }) {
+  return &lt;p&gt;{count} × {kind}&lt;/p&gt;;
+}
+
+&lt;Tagine kind="viande aux pruneaux" count={3} /&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="useeffect" data-cat="front" data-terms="useEffect hook react effet effect lifecycle useEffect la lumière de chaque pièce" data-reveal>
+          <summary>
+            <span class="entry__term">useEffect<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la lumière de chaque pièce</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme allumer la lumière en entrant dans une pièce : on ne l’actionne pas chaque minute, seulement quand on change de pièce.</p>
+              <p class="entry__text">useEffect est un hook React qui exécute un travail après l’affichage d’un composant : récupérer des données d’une API, lancer un minuteur… Son tableau de dépendances indique quand recommencer.</p>
+              <label class="got"><input type="checkbox" data-got="useeffect"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>useEffect(() =&gt; {
+  fetch("/api/terms")
+    .then((r) =&gt; r.json())
+    .then(setTerms);
+}, []);</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="data" aria-labelledby="g-data">
+        <h3 class="group__head" id="g-data">Données</h3>
+        <details class="entry" id="database" data-cat="data" data-terms="Database base de donnees bdd db postgres mysql Base de données les archives de la commune" data-reveal>
+          <summary>
+            <span class="entry__term">Base de données<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Database</span></span>
+            <span class="entry__scene">Comme les archives de la commune</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme les archives de la commune : chaque dossier à sa place, avec un numéro, et l’employé retrouve le vôtre en une minute parce que tout est rangé.</p>
+              <p class="entry__text">Une base de données est un endroit organisé pour stocker des données, afin de les lire, les ajouter, les modifier et les supprimer rapidement, même quand il y en a des millions de lignes.</p>
+              <label class="got"><input type="checkbox" data-got="database"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>CREATE TABLE terms (
+  id       INT PRIMARY KEY,
+  name     TEXT,
+  category TEXT
+);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="sql" data-cat="data" data-terms="SQL select where query requete SQL la demande à l'épicier" data-reveal>
+          <summary>
+            <span class="entry__term">SQL<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme la demande à l’épicier</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme dire à l’épicier : « donnez-moi tous les légumes à moins de 10 dirhams ». Vous dites ce que vous voulez, il sait où ça se trouve.</p>
+              <p class="entry__text">SQL est le langage pour interroger une base de données relationnelle : on dit ce qu’on veut (SELECT), d’où (FROM) et à quelle condition (WHERE).</p>
+              <label class="got"><input type="checkbox" data-got="sql"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>SELECT name, price
+FROM vegetables
+WHERE price &lt; 10
+ORDER BY price;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="sql-join" data-cat="data" data-terms="SQL JOIN join jointure inner join left join Jointure SQL le carnet de crédit de l'épicier" data-reveal>
+          <summary>
+            <span class="entry__term">Jointure SQL<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">SQL JOIN</span></span>
+            <span class="entry__scene">Comme le carnet de crédit de l’épicier</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le carnet de crédit de l’épicier : une page liste les voisins et leur numéro de maison, une autre les dettes par numéro de maison. JOIN rassemble les deux : qui doit combien.</p>
+              <p class="entry__text">Une jointure combine les lignes de deux tables (ou plus) grâce à une colonne commune. INNER JOIN ne garde que ce qui existe des deux côtés ; LEFT JOIN garde tout ce qui vient de la table de gauche.</p>
+              <label class="got"><input type="checkbox" data-got="sql-join"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>SELECT neighbours.name, credit.amount
+FROM neighbours
+JOIN credit ON credit.house_id = neighbours.house_id;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="primary-key" data-cat="data" data-terms="Primary key cle primaire id pk unique Clé primaire le numéro de CIN" data-reveal>
+          <summary>
+            <span class="entry__term">Clé primaire<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Primary key</span></span>
+            <span class="entry__scene">Comme le numéro de CIN</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le numéro de la carte nationale (CIN) : beaucoup de gens s’appellent Mohamed Alaoui, mais deux personnes n’ont jamais le même CIN. C’est ainsi qu’on sait qui est qui.</p>
+              <p class="entry__text">Une clé primaire est une colonne (ou plusieurs) qui identifie chaque ligne d’une table de façon unique. Elle ne peut ni se répéter ni être vide.</p>
+              <label class="got"><input type="checkbox" data-got="primary-key"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>CREATE TABLE neighbours (
+  house_id INT PRIMARY KEY,
+  name     TEXT NOT NULL
+);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="orm" data-cat="data" data-terms="ORM prisma sequelize typeorm django object relational mapping ORM l'interprète au tribunal" data-reveal>
+          <summary>
+            <span class="entry__term">ORM<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme l’interprète au tribunal</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme un interprète au tribunal : vous parlez votre langue, il traduit pour le juge et vous rapporte la réponse dans la vôtre.</p>
+              <p class="entry__text">Un ORM est une bibliothèque qui permet de manipuler une base de données avec les objets de votre langage (JavaScript, Python…) sans écrire de SQL à la main. Il traduit en SQL pour vous.</p>
+              <label class="got"><input type="checkbox" data-got="orm"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const terms = await prisma.term.findMany({
+  where: { category: "Git" },
+});</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="devops" aria-labelledby="g-devops">
+        <h3 class="group__head" id="g-devops">DevOps</h3>
+        <details class="entry" id="docker" data-cat="devops" data-terms="Docker dockerfile image conteneur container Docker les conteneurs de Tanger Med" data-reveal>
+          <summary>
+            <span class="entry__term">Docker<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme les conteneurs de Tanger Med</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme les conteneurs du port de Tanger Med : peu importe ce qu’ils contiennent, ils ont tous la même taille, sont soulevés par la même grue et montent sur n’importe quel navire.</p>
+              <p class="entry__text">Docker emballe votre application avec tout ce dont elle a besoin (version de Node, bibliothèques, configuration) dans une seule image. Cette image fonctionne de la même façon sur n’importe quelle machine.</p>
+              <label class="got"><input type="checkbox" data-got="docker"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Dockerfile</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>FROM node:20-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "server.js"]</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="container" data-cat="devops" data-terms="Container conteneur docker run image Conteneur les baghrirs d'une même recette" data-reveal>
+          <summary>
+            <span class="entry__term">Conteneur<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Container</span></span>
+            <span class="entry__scene">Comme les baghrirs d’une même recette</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Si l’image est la recette du baghrir, le conteneur est le baghrir cuit devant vous. Une seule recette, autant de baghrirs que vous voulez.</p>
+              <p class="entry__text">Un conteneur est une copie en cours d’exécution d’une image Docker. On peut lancer plusieurs conteneurs à partir de la même image, chacun isolé des autres.</p>
+              <label class="got"><input type="checkbox" data-got="container"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>docker build -t my-app .
+docker run -p 3000:3000 my-app
+docker ps</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="env-variable" data-cat="devops" data-terms="Environment variable env .env secret config Variable d'environnement le code wifi du café" data-reveal>
+          <summary>
+            <span class="entry__term">Variable d’environnement<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Environment variable</span></span>
+            <span class="entry__scene">Comme le code wifi du café</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le code wifi d’un café : il n’est pas imprimé sur la carte que tout le monde lit, on le demande au serveur. Même carte, mais le code peut changer.</p>
+              <p class="entry__text">Une variable d’environnement est une valeur gardée hors du code (mot de passe de base de données, clé d’API) pour qu’elle ne finisse jamais sur GitHub et puisse changer selon l’environnement (dev, prod).</p>
+              <label class="got"><input type="checkbox" data-got="env-variable"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code><span class="c">// .env (à ne jamais mettre dans git)</span>
+<span class="c">// DATABASE_URL=postgres://localhost/mydb</span>
+
+const url = process.env.DATABASE_URL;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="deploy" data-cat="devops" data-terms="Deploy deploiement deployment hosting github pages Déploiement la harira partagée avec les voisins" data-reveal>
+          <summary>
+            <span class="entry__term">Déploiement<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Deploy</span></span>
+            <span class="entry__scene">Comme la harira partagée avec les voisins</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme préparer la harira à la maison et la partager avec les voisins pendant le Ramadan : avant, vous seul en aviez, maintenant tout le monde peut en prendre un bol.</p>
+              <p class="entry__text">Déployer, c’est mettre votre code sur un serveur pour que le site ou l’application soit accessible sur internet, et pas seulement sur votre ordinateur.</p>
+              <label class="got"><input type="checkbox" data-got="deploy"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Terminal</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>npm run build
+git push origin main
+<span class="c"># GitHub Pages publie le site tout seul</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="ci-cd" data-cat="devops" data-terms="CI/CD ci cd github actions pipeline integration continue CI/CD le contrôle technique de la voiture" data-reveal>
+          <summary>
+            <span class="entry__term">CI/CD<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le contrôle technique de la voiture</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme la visite technique avant de reprendre la route : si tout est bon, on vous donne le papier et vous repartez. Sinon, vous réparez d’abord.</p>
+              <p class="entry__text">Le CI/CD, c’est de l’automatisation : à chaque push, les tests se lancent tout seuls (CI), et si tout passe, le code part en production tout seul (CD).</p>
+              <label class="got"><input type="checkbox" data-got="ci-cd"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>YAML</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="security" aria-labelledby="g-security">
+        <h3 class="group__head" id="g-security">Sécurité</h3>
+        <details class="entry" id="jwt" data-cat="security" data-terms="JWT json web token jeton bearer login JWT le bracelet de Mawazine" data-reveal>
+          <summary>
+            <span class="entry__term">JWT<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span></span>
+            <span class="entry__scene">Comme le bracelet de Mawazine</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le bracelet du festival Mawazine : quand le vigile le voit à votre poignet, il vous laisse entrer sans demander votre nom. Et impossible de le falsifier, il porte un sceau spécial.</p>
+              <p class="entry__text">Un JWT (JSON Web Token) est un jeton signé que le serveur vous remet à la connexion. Vous le renvoyez à chaque requête, et le serveur vérifie la signature sans repasser par la base de données.</p>
+              <label class="got"><input type="checkbox" data-got="jwt"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const token = jwt.sign({ id: 42 }, process.env.JWT_SECRET, {
+  expiresIn: "1h",
+});
+<span class="c">// Authorization: Bearer &lt;token&gt;</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="hashing" data-cat="security" data-terms="Hashing hash bcrypt argon2 password mot de passe salt Hachage le jus de citron" data-reveal>
+          <summary>
+            <span class="entry__term">Hachage<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Hashing</span></span>
+            <span class="entry__scene">Comme le jus de citron</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">Comme le jus de citron : d’un citron on tire du jus, mais du jus on ne retrouve jamais le citron. Et le même citron donne toujours le même goût.</p>
+              <p class="entry__text">Le hachage transforme un texte (un mot de passe, par exemple) en une chaîne de caractères fixe, d’où l’on ne peut pas retrouver le texte d’origine. Les mots de passe se stockent toujours hachés avec un sel (bcrypt, argon2).</p>
+              <label class="got"><input type="checkbox" data-got="hashing"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>const hash = await bcrypt.hash("password123", 10);
+const ok = await bcrypt.compare("password123", hash);
+<span class="c">// ok === true</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="auth" data-cat="security" data-terms="Authentication / authorization auth authn authz login permission role 401 403 Authentification / autorisation le passeport et la carte d'embarquement" data-reveal>
+          <summary>
+            <span class="entry__term">Authentification / autorisation<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">Compris</span></span><span class="entry__en" lang="en" dir="ltr">Authentication / authorization</span></span>
+            <span class="entry__scene">Comme le passeport et la carte d’embarquement</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">À l’aéroport Mohammed V : au contrôle, on vérifie votre passeport (qui vous êtes). À la porte, on vérifie votre carte d’embarquement (avez-vous le droit de monter dans cet avion).</p>
+              <p class="entry__text">L’authentification vérifie qui vous êtes (connexion avec e-mail et mot de passe). L’autorisation décide de ce que vous avez le droit de faire ensuite (un admin peut supprimer, un simple utilisateur non).</p>
+              <label class="got"><input type="checkbox" data-got="auth"> Compris</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">Copier</button>
+              <pre tabindex="0" data-lenis-prevent><code>if (!req.user) return res.status(401).end();      <span class="c">// authentication</span>
+if (req.user.role !== "admin") {
+  return res.status(403).end();                    <span class="c">// authorization</span>
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+      <p class="footer__mark"><a class="wordmark" href="./" aria-label="Qamous Dev, dictionnaire" dir="ltr">Qamous Dev</a></p>
+      <p class="footer__line">Un dictionnaire ouvert de la programmation, pour les débutants au Maroc.</p>
+      <ul class="footer__links">
+          <li><a href="./" aria-current="page"><span>Dictionnaire</span></a></li>
+          <li><a href="path.html"><span>Parcours</span></a></li>
+          <li><a href="quiz.html"><span>Teste-toi</span></a></li>
+          <li><a href="contribute.html"><span>Ajouter un mot</span></a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="tabbar" aria-label="Menu principal">
+    <ul>
+          <li><a href="./" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Dictionnaire</span></a></li>
+          <li><a href="path.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><span>Parcours</span></a></li>
+          <li><a href="quiz.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span>Teste-toi</span></a></li>
+          <li><a href="contribute.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg><span>Ajouter un mot</span></a></li>
+    </ul>
+  </nav>
+
+  <script type="application/json" id="ui">{"hint":"Cliquez sur un terme pour l'ouvrir.","count":{"one":"{n} terme","other":"{n} termes"},"inCat":" dans {cat}","forQ":" pour « {q} »","empty":"Aucun terme ne correspond à « {q} ».","progress":"Compris : {n} sur {total}","stage":"{n} sur {total}","copied":"Copié","copyFail":"Échec de la copie","score":"Bonnes réponses : {right} sur {total}","right":"Exact : {term}.","wrong":"Pas tout à fait. La réponse est {term}.","lang":"fr","total":40}</script>
+  <script src="../js/vendor/lenis.min.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+</html>

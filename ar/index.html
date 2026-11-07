@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qamous Dev، البرمجة بمشاهد من الحياة المغربية</title>
+  <meta name="description" content="40 مفهومًا في البرمجة (Git وAPI وDocker وJWT وReact وSQL JOIN)، مشروحة بمشاهد من الحياة المغربية وبأمثلة قصيرة من الكود.">
+  <link rel="canonical" href="https://elfarisssaid19.github.io/qamous-dev/ar/">
+  <link rel="alternate" hreflang="ar" href="https://elfarisssaid19.github.io/qamous-dev/ar/">
+  <link rel="alternate" hreflang="fr" href="https://elfarisssaid19.github.io/qamous-dev/fr/">
+  <link rel="alternate" hreflang="en" href="https://elfarisssaid19.github.io/qamous-dev/en/">
+  <link rel="alternate" hreflang="x-default" href="https://elfarisssaid19.github.io/qamous-dev/">
+  <meta property="og:site_name" content="Qamous Dev">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Qamous Dev، البرمجة بمشاهد من الحياة المغربية">
+  <meta property="og:description" content="40 مفهومًا في البرمجة (Git وAPI وDocker وJWT وReact وSQL JOIN)، مشروحة بمشاهد من الحياة المغربية وبأمثلة قصيرة من الكود.">
+  <meta property="og:url" content="https://elfarisssaid19.github.io/qamous-dev/ar/">
+  <meta property="og:locale" content="ar_MA">
+  <meta property="og:locale:alternate" content="fr_MA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f1efe9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0c18" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="page-dict">
+  <a class="skip" href="#main">انتقل إلى المحتوى</a>
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob--majorelle"></span>
+    <span class="blob blob--saffron"></span>
+    <span class="blob blob--mint"></span>
+    <span class="blob blob--sky"></span>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="القائمة الرئيسية">
+      <a class="wordmark" href="./" aria-label="Qamous Dev، القاموس" dir="ltr">Qamous Dev</a>
+      <div class="nav__rows">
+        <ul class="nav__links">
+          <li><a href="./" aria-current="page"><span>القاموس</span></a></li>
+          <li><a href="path.html"><span>المسار</span></a></li>
+          <li><a href="quiz.html"><span>اختبر نفسك</span></a></li>
+          <li><a href="contribute.html"><span>أضف كلمة</span></a></li>
+        </ul>
+        <ul class="langs" aria-label="اللغة">
+          <li><a href="../ar/" hreflang="ar" lang="ar" dir="rtl" aria-current="page">العربية</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" dir="ltr">Français</a></li>
+          <li><a href="../en/" hreflang="en" lang="en" dir="ltr">English</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="hero" data-reveal>
+        <h1 class="hero__head">API؟ مثل نادل المقهى.</h1>
+        <p class="hero__lede">40 مصطلحًا في البرمجة، مشروحة بمشاهد من الحياة المغربية وبكود حقيقي.</p>
+      </div>
+    </div>
+    <div class="lookup">
+      <div class="toolbar">
+        <div class="toolbar__inner container">
+          <form class="search" role="search" action="./">
+            <label class="search__label" for="q">ابحث عن مصطلح</label>
+            <div class="search__field">
+              <input id="q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="git، api، docker، مستودع…" aria-keyshortcuts="/" aria-describedby="status">
+              <kbd class="search__key" aria-hidden="true">/</kbd>
+            </div>
+          </form>
+          <fieldset class="chips" data-lenis-prevent>
+            <legend class="visually-hidden">الموضوع</legend>
+            <input type="radio" name="cat" id="cat-all" value="" checked><label for="cat-all">الكل <span class="chip__n">40</span></label>
+            <input type="radio" name="cat" id="cat-basics" value="basics"><label for="cat-basics">الأساسيات <span class="chip__n">6</span></label>
+            <input type="radio" name="cat" id="cat-git" value="git"><label for="cat-git">Git <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-web" value="web"><label for="cat-web">الويب وAPI <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-front" value="front"><label for="cat-front">الواجهة الأمامية <span class="chip__n">7</span></label>
+            <input type="radio" name="cat" id="cat-data" value="data"><label for="cat-data">البيانات <span class="chip__n">5</span></label>
+            <input type="radio" name="cat" id="cat-devops" value="devops"><label for="cat-devops">DevOps <span class="chip__n">5</span></label>
+            <input type="radio" name="cat" id="cat-security" value="security"><label for="cat-security">الأمان <span class="chip__n">3</span></label>
+          </fieldset>
+        </div>
+      </div>
+
+      <section class="qamous container" id="dictionary" aria-labelledby="dictionary-head">
+        <div class="qamous__top" data-reveal>
+          <h2 class="qamous__head" id="dictionary-head">من برطمان السكر إلى سوار موازين</h2>
+          <p class="qamous__status" id="status" role="status">انقر على أيّ مصطلح لفتحه.</p>
+        </div>
+
+        <div class="empty" id="empty" hidden>
+          <p class="empty__head" id="empty-head"></p>
+          <p>جرّب الاسم بالإنجليزية أو بالفرنسية، مثل merge أو fusion.</p>
+          <button class="btn btn--quiet" type="button" id="clear">امسح البحث</button>
+        </div>
+
+      <section class="group" data-group="basics" aria-labelledby="g-basics">
+        <h3 class="group__head" id="g-basics">الأساسيات</h3>
+        <details class="entry" id="variable" data-cat="basics" data-terms="Variable var let const المتغيّر برطمان السكر في المطبخ" data-reveal>
+          <summary>
+            <span class="entry__term">المتغيّر<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Variable</span></span>
+            <span class="entry__scene">مثل برطمان السكر في المطبخ</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل برطمان السكر في المطبخ: مكتوب عليه «سكر»، وحين يفرغ تملؤه من جديد. الاسم ثابت والمحتوى يتغيّر.</p>
+              <p class="entry__text">المتغيّر مكان في الذاكرة له اسم، يحفظ قيمة لتعود إليها لاحقًا. ويمكنك تغيير قيمته متى شئت.</p>
+              <label class="got"><input type="checkbox" data-got="variable"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>let price = 5;       <span class="c">// شاي بالنعناع: 5 دراهم</span>
+price = 6;           <span class="c">// ارتفع الثمن</span>
+console.log(price);  <span class="c">// 6</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="function" data-cat="basics" data-terms="Function fonction method methode الدالّة بائعة المسمّن" data-reveal>
+          <summary>
+            <span class="entry__term">الدالّة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Function</span></span>
+            <span class="entry__scene">مثل بائعة المسمّن</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل بائعة المسمّن في السوق: تعطيها العجين (المُدخل) فتعيد إليك مسمّنًا (المُخرج)، ولا يلزمك أن تعرف كيف تصنعه في كل مرة.</p>
+              <p class="entry__text">الدالّة مجموعة تعليمات لها اسم. تكتبها مرة واحدة، ثم تستدعيها كلما احتجت إليها بقيم مختلفة.</p>
+              <label class="got"><input type="checkbox" data-got="function"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>function add(a, b) {
+  return a + b;
+}
+
+add(2, 3);  <span class="c">// 5</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="loop" data-cat="basics" data-terms="Loop boucle for while الحلقة التكرارية سقّاء ساحة جامع الفنا" data-reveal>
+          <summary>
+            <span class="entry__term">الحلقة التكرارية<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Loop</span></span>
+            <span class="entry__scene">مثل سقّاء ساحة جامع الفنا</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل السقّاء في ساحة جامع الفنا: يمرّ على الناس واحدًا تلو الآخر، يسقي كلًّا منهم كأسًا، ويتوقف حين تفرغ القِربة.</p>
+              <p class="entry__text">الحلقة تكرّر العمل نفسه مرات عديدة دون إعادة كتابة الكود. وتتوقف حين تنتهي العناصر أو حين يصبح الشرط خاطئًا.</p>
+              <label class="got"><input type="checkbox" data-got="loop"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const notes = [10, 20, 50];
+
+for (const note of notes) {
+  console.log(note + " dh");
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="array" data-cat="basics" data-terms="Array tableau liste list index المصفوفة مقاعد الطاكسي الكبير" data-reveal>
+          <summary>
+            <span class="entry__term">المصفوفة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Array</span></span>
+            <span class="entry__scene">مثل مقاعد الطاكسي الكبير</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل مقاعد الطاكسي الكبير: لكل مقعد رقم، والمقعد الأول بجانب السائق رقمه 0.</p>
+              <p class="entry__text">المصفوفة قائمة مرتّبة من القيم داخل متغيّر واحد، لكل قيمة رقم يُسمّى الفهرس. ويبدأ الفهرس من 0 لا من 1.</p>
+              <label class="got"><input type="checkbox" data-got="array"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const veggies = ["tomato", "potato", "carrot"];
+
+veggies[0];       <span class="c">// "tomato"</span>
+veggies.length;   <span class="c">// 3</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="bug" data-cat="basics" data-terms="Bug debug debugging erreur error الخلل البرمجي قائمة المشتريات الناقصة" data-reveal>
+          <summary>
+            <span class="entry__term">الخلل البرمجي<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Bug</span></span>
+            <span class="entry__scene">مثل قائمة المشتريات الناقصة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أن ترسل أحدًا إلى البقّال بقائمة مكتوب فيها «2 بطاطس» وأنت تقصد كيلوغرامين، فيعود بحبّتين فقط. نفّذ ما كتبتَ لا ما قصدتَ.</p>
+              <p class="entry__text">الخلل خطأ في الكود يجعل البرنامج يتصرّف على غير ما توقّعت. والتصحيح (Debugging) هو البحث عن سببه وإصلاحه.</p>
+              <label class="got"><input type="checkbox" data-got="bug"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const total = "10" + 5;
+console.log(total);  <span class="c">// "105" وليس 15</span>
+
+<span class="c">// الإصلاح: Number("10") + 5</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="async-await" data-cat="basics" data-terms="Async/await async await promise asynchrone الانتظار غير المتزامن الملابس عند محلّ التنظيف" data-reveal>
+          <summary>
+            <span class="entry__term">الانتظار غير المتزامن<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Async/await</span></span>
+            <span class="entry__scene">مثل الملابس عند محلّ التنظيف</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل ترك ملابسك عند محلّ التنظيف: لا تجلس هناك منتظرًا، بل تقضي شأنًا آخر، ويتصلون بك حين تجهز.</p>
+              <p class="entry__text">تتيح لك async/await انتظار عملية بطيئة (كاستجابة الخادم) دون أن يتوقف البرنامج كله. وتعني «await»: انتظر هنا حتى تصل النتيجة.</p>
+              <label class="got"><input type="checkbox" data-got="async-await"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>async function getMenu() {
+  const res = await fetch("/api/menu");
+  const data = await res.json();
+  return data;
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="git" aria-labelledby="g-git">
+        <h3 class="group__head" id="g-git">Git</h3>
+        <details class="entry" id="git" data-cat="git" data-terms="Git version control versioning Git دفتر النصوص في المدرسة" data-reveal>
+          <summary>
+            <span class="entry__term">Git<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل دفتر النصوص في المدرسة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل دفتر النصوص في المدرسة: يُدوَّن فيه كل درس بتاريخه، فإن غبت أسبوعًا فتحته وعرفت أين توقّف القسم بالضبط.</p>
+              <p class="entry__text">Git أداة تسجّل كل تغيير تُجريه على الكود. يمكنك الرجوع إلى أي نسخة سابقة، والعمل مع زملائك على المشروع نفسه دون أن يمحو أحدكم عمل الآخر.</p>
+              <label class="got"><input type="checkbox" data-got="git"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git init
+git status
+git log --oneline</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="repository" data-cat="git" data-terms="Repository repo depot github gitlab المستودع ألبوم صور العائلة" data-reveal>
+          <summary>
+            <span class="entry__term">المستودع<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Repository</span></span>
+            <span class="entry__scene">مثل ألبوم صور العائلة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل ألبوم صور العائلة: فيه صور اليوم وصور الماضي مرتّبةً، ويمكن لكل فرد من العائلة أن يحتفظ بنسخته.</p>
+              <p class="entry__text">المستودع (repo) هو مجلّد المشروع مع سجلّه الكامل الذي يحفظه Git. هناك مستودع محلّي على حاسوبك، ومستودع بعيد على GitHub أو GitLab.</p>
+              <label class="got"><input type="checkbox" data-got="repository"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>mkdir my-project &amp;&amp; cd my-project
+git init
+git remote add origin https://github.com/user/my-project.git</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="commit" data-cat="git" data-terms="Commit git commit snapshot الإيداع صورة الطاجين في كل مرحلة" data-reveal>
+          <summary>
+            <span class="entry__term">الإيداع<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Commit</span></span>
+            <span class="entry__scene">مثل صورة الطاجين في كل مرحلة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أن تلتقط صورة لطاجين أمّك في كل مرحلة: الخضر، ثم اللحم، ثم الطبق جاهزًا. فإن احترق بعد ذلك عرفت إلى أين ترجع.</p>
+              <p class="entry__text">الإيداع (Commit) لقطة للكود في لحظة معيّنة، مع رسالة تشرح ما الذي تغيّر. لكل إيداع معرّف خاص، ويمكنك العودة إليه متى شئت.</p>
+              <label class="got"><input type="checkbox" data-got="commit"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git add index.html
+git commit -m "Add contact page"</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="branch" data-cat="git" data-terms="Branch branche git switch checkout الفرع زقاق في المدينة القديمة" data-reveal>
+          <summary>
+            <span class="entry__term">الفرع<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Branch</span></span>
+            <span class="entry__scene">مثل زقاق في المدينة القديمة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل زقاق في المدينة القديمة: تغادر الشارع الرئيسي وتتجوّل في الزقاق، ثم تعود إلى الشارع نفسه، والشارع الرئيسي لم يتغيّر.</p>
+              <p class="entry__text">الفرع خطّ عمل مستقل عن الكود الرئيسي (main). تجرّب فيه ميزة جديدة دون أن تُفسد النسخة التي تعمل.</p>
+              <label class="got"><input type="checkbox" data-got="branch"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git switch -c feature/login
+<span class="c"># ... اعمل وأنشئ إيداعات ...</span>
+git switch main</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="merge" data-cat="git" data-terms="Merge fusion conflict conflit rebase الدمج خيّاطتان على قفطان واحد" data-reveal>
+          <summary>
+            <span class="entry__term">الدمج<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Merge</span></span>
+            <span class="entry__scene">مثل خيّاطتان على قفطان واحد</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل خيّاطتين تعملان على القفطان نفسه: إحداهما تخيط الأكمام والأخرى الصدر، ثم تُجمع القطع في النهاية. وإن خاطت كلتاهما الموضع نفسه، فلا بدّ أن تحسم إحداهما.</p>
+              <p class="entry__text">الدمج يضمّ عمل فرع إلى فرع آخر. وإذا غيّر الطرفان الأسطر نفسها، يتوقف Git ويطلب منك الاختيار (تعارض الدمج).</p>
+              <label class="got"><input type="checkbox" data-got="merge"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git switch main
+git merge feature/login</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="pull-request" data-cat="git" data-terms="Pull request pr merge request mr code review طلب الدمج طلب عند المقدّم" data-reveal>
+          <summary>
+            <span class="entry__term">طلب الدمج<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Pull request</span></span>
+            <span class="entry__scene">مثل طلب عند المقدّم</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل طلب تقدّمه إلى المقدّم: يطّلع عليه، وقد يعيده إليك لتصحّح شيئًا، وحين يكتمل كل شيء يوقّعه.</p>
+              <p class="entry__text">طلب الدمج (Pull request) طلب على GitHub لإدخال عمل فرعك إلى main. يقرأ زملاؤك الكود ويعلّقون عليه، ثم يوافقون.</p>
+              <label class="got"><input type="checkbox" data-got="pull-request"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git push -u origin feature/login
+gh pr create --title "Add login"</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="clone" data-cat="git" data-terms="Clone git clone download telecharger fork الاستنساخ وصفة حريرة الجدّة" data-reveal>
+          <summary>
+            <span class="entry__term">الاستنساخ<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Clone</span></span>
+            <span class="entry__scene">مثل وصفة حريرة الجدّة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أن تنقل وصفة حريرة جدّتك بكل تفاصيلها: صارت لديك نسختك تعدّلها كما تشاء، وبقي الأصل عندها.</p>
+              <p class="entry__text">الاستنساخ (Clone) ينزّل نسخة كاملة من مستودع على GitHub إلى حاسوبك، بسجلّه كله، لتعمل عليه محليًّا.</p>
+              <label class="got"><input type="checkbox" data-got="clone"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>git clone https://github.com/user/project.git
+cd project</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="web" aria-labelledby="g-web">
+        <h3 class="group__head" id="g-web">الويب وAPI</h3>
+        <details class="entry" id="http" data-cat="web" data-terms="HTTP https request response get post protocol protocole HTTP رسالة في مكتب البريد" data-reveal>
+          <summary>
+            <span class="entry__term">HTTP<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل رسالة في مكتب البريد</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل رسالة في مكتب البريد: تحمل عنوانًا (URL) ونوع الطلب (GET أو POST) والمحتوى، ويعود إليك الردّ في رسالة أخرى.</p>
+              <p class="entry__text">HTTP هو البروتوكول الذي يتخاطب به المتصفّح مع الخادم. يرسل المتصفّح طلبًا (GET أو POST…)، فيردّ الخادم باستجابة فيها رمز حالة وبيانات.</p>
+              <label class="got"><input type="checkbox" data-got="http"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTTP</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>GET /api/terms HTTP/1.1
+Host: example.com
+Accept: application/json</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="api" data-cat="web" data-terms="API application programming interface interface واجهة البرمجة نادل المقهى" data-reveal>
+          <summary>
+            <span class="entry__term">واجهة البرمجة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">API</span></span>
+            <span class="entry__scene">مثل نادل المقهى</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل النادل في المقهى: لا تدخل المطبخ أبدًا. تقول له «قهوة بالحليب ومسمّن»، فيذهب إلى المطبخ ويعود بطلبك.</p>
+              <p class="entry__text">واجهة البرمجة (API) طريقة تتيح لبرنامج أن يتحدّث مع برنامج آخر. تحدّد لك ما يمكنك طلبه، وكيف تطلبه، وما الذي ستتلقّاه، دون أن تعرف ما يجري في الداخل.</p>
+              <label class="got"><input type="checkbox" data-got="api"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const res = await fetch("https://api.example.com/weather");
+const weather = await res.json();
+
+console.log(weather.temperature);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="rest" data-cat="web" data-terms="REST restful api crud get post put delete REST قائمة المقهى" data-reveal>
+          <summary>
+            <span class="entry__term">REST<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل قائمة المقهى</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل قائمة المقهى: لكل صنف اسم (شاي، قهوة، عصير)، وهناك أفعال معدودة معروفة: اطلب، أضف، غيّر، ألغِ.</p>
+              <p class="entry__text">REST أسلوب شائع لتصميم واجهات البرمجة: لكل شيء عنوان URL (مورد)، وتستعمل عليه أفعال HTTP: GET للقراءة، وPOST للإضافة، وPUT للتعديل، وDELETE للحذف.</p>
+              <label class="got"><input type="checkbox" data-got="rest"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTTP</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>GET    /terms       <span class="c"># جلب الكل</span>
+GET    /terms/42    <span class="c"># جلب واحد</span>
+POST   /terms       <span class="c"># إضافة واحد</span>
+DELETE /terms/42    <span class="c"># حذفه</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="json" data-cat="web" data-terms="JSON javascript object notation format data objet JSON قائمة مشتريات الأم" data-reveal>
+          <summary>
+            <span class="entry__term">JSON<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل قائمة مشتريات الأم</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل قائمة المشتريات التي تكتبها لك أمّك: خبز 4، شاي 1، سكر 2 كيلو. كل صنف باسمه وكميته.</p>
+              <p class="entry__text">JSON صيغة نصية تنظّم البيانات في مفاتيح وقيم (key: value). يسهل على الإنسان قراءتها وعلى الآلة تحليلها، ولهذا تعتمدها أغلب واجهات البرمجة.</p>
+              <label class="got"><input type="checkbox" data-got="json"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JSON</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>{
+  "bread": 4,
+  "tea": 1,
+  "sugar_kg": 2,
+  "paid": false
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="endpoint" data-cat="web" data-terms="Endpoint route url api نقطة النهاية شبابيك المقاطعة" data-reveal>
+          <summary>
+            <span class="entry__term">نقطة النهاية<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Endpoint</span></span>
+            <span class="entry__scene">مثل شبابيك المقاطعة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل الشبابيك في مكتب المقاطعة: شبّاك للبطاقة الوطنية وآخر للحالة المدنية. كلٌّ يؤدّي مهمة واحدة، وعليك أن تقصد الشبّاك الصحيح.</p>
+              <p class="entry__text">نقطة النهاية (Endpoint) عنوان URL محدّد في واجهة البرمجة يؤدّي مهمة واحدة. لكل نقطة طريقة (GET أو POST…) وتعيد بيانات محدّدة.</p>
+              <label class="got"><input type="checkbox" data-got="endpoint"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>app.get("/api/terms/:id", (req, res) =&gt; {
+  res.json(terms[req.params.id]);
+});</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="status-code" data-cat="web" data-terms="Status code 200 404 500 401 403 http error erreur رمز الحالة جواب البقّال" data-reveal>
+          <summary>
+            <span class="entry__term">رمز الحالة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Status code</span></span>
+            <span class="entry__scene">مثل جواب البقّال</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أجوبة بقّال الحيّ: 200 «تفضّل»، 404 «غير متوفّر»، 401 «ادفع أولًا»، 500 «الثلاجة معطّلة»، والمشكلة عنده لا عندك.</p>
+              <p class="entry__text">رمز الحالة رقم يعيده الخادم مع كل استجابة ليخبرك بما حدث: 200 كل شيء على ما يرام، 404 غير موجود، 500 خطأ في الخادم.</p>
+              <label class="got"><input type="checkbox" data-got="status-code"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const res = await fetch("/api/terms/999");
+
+if (res.status === 404) {
+  console.log("هذا المصطلح غير موجود");
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="cors" data-cat="web" data-terms="CORS cross origin access-control-allow-origin CORS حارس الإقامة" data-reveal>
+          <summary>
+            <span class="entry__term">CORS<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل حارس الإقامة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل حارس باب الإقامة السكنية: لا يسمح لأيّ كان بالدخول، ولا بدّ أن يقول له أحد السكان «هذا الشخص معي».</p>
+              <p class="entry__text">CORS قاعدة في المتصفّح تمنع موقعًا من جلب بيانات من نطاق آخر، ما لم يسمح خادم ذلك النطاق بذلك عبر الترويسة Access-Control-Allow-Origin.</p>
+              <label class="got"><input type="checkbox" data-got="cors"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code><span class="c">// على الخادم (Express)</span>
+res.set("Access-Control-Allow-Origin", "https://example.com");</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="front" aria-labelledby="g-front">
+        <h3 class="group__head" id="g-front">الواجهة الأمامية</h3>
+        <details class="entry" id="html" data-cat="front" data-terms="HTML balise tag page web markup HTML جدران البيت" data-reveal>
+          <summary>
+            <span class="entry__term">HTML<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل جدران البيت</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل بناء البيت: الجدران والأبواب والسقف. لم يُطلَ بعد ولم يُفرش، لكنه قائم.</p>
+              <p class="entry__text">HTML هي اللغة التي تبني هيكل صفحة الويب: العناوين والفقرات والصور والأزرار. وكل عنصر يوضع داخل وسم.</p>
+              <label class="got"><input type="checkbox" data-got="html"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>HTML</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>&lt;h1&gt;مرحبًا&lt;/h1&gt;
+&lt;p&gt;موقعي الأول.&lt;/p&gt;
+&lt;button&gt;انقر هنا&lt;/button&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="css" data-cat="front" data-terms="CSS style design flexbox grid CSS الصباغة والزليج" data-reveal>
+          <summary>
+            <span class="entry__term">CSS<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل الصباغة والزليج</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">إن كانت HTML هيكل البيت، فإن CSS هي الطلاء والزليج والأثاث. البيت نفسه، لكن كلٌّ يزيّنه على ذوقه.</p>
+              <p class="entry__text">CSS هي اللغة التي تنسّق HTML: الألوان والخطوط والمسافات، وطريقة ظهور الصفحة على الهاتف أو الحاسوب.</p>
+              <label class="got"><input type="checkbox" data-got="css"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>CSS</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>h1 {
+  font-size: 2rem;
+  text-align: center;
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="dom" data-cat="front" data-terms="DOM document object model queryselector element DOM شجرة العائلة" data-reveal>
+          <summary>
+            <span class="entry__term">DOM<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل شجرة العائلة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل شجرة العائلة: الأجداد، ثم أبناؤهم، ثم الأحفاد. ولتغيير أحدهم تصل إليه بموقعه في الشجرة.</p>
+              <p class="entry__text">DOM تمثيل صفحة HTML في ذاكرة المتصفّح على هيئة شجرة من العناصر. ويعمل JavaScript على DOM ليغيّر ما يظهر دون إعادة تحميل الصفحة.</p>
+              <label class="got"><input type="checkbox" data-got="dom"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const title = document.querySelector("h1");
+title.textContent = "أهلًا";</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="component" data-cat="front" data-terms="Component composant react vue jsx المكوّن قالب الآجرّ" data-reveal>
+          <summary>
+            <span class="entry__term">المكوّن<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Component</span></span>
+            <span class="entry__scene">مثل قالب الآجرّ</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل قالب الآجرّ: لا تشكّل كل آجرّة بيدك، بل تصنع القالب مرة واحدة وتملؤه كلما احتجت.</p>
+              <p class="entry__text">المكوّن في React قطعة من الواجهة (زر، بطاقة، قائمة) لها كودها وتنسيقها. تبنيه مرة واحدة وتعيد استعماله في أماكن كثيرة.</p>
+              <label class="got"><input type="checkbox" data-got="component"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>function Button({ label }) {
+  return &lt;button className="btn"&gt;{label}&lt;/button&gt;;
+}
+
+&lt;Button label="إرسال" /&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="state" data-cat="front" data-terms="State usestate react etat الحالة لوحة النتيجة في الملعب" data-reveal>
+          <summary>
+            <span class="entry__term">الحالة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">State</span></span>
+            <span class="entry__scene">مثل لوحة النتيجة في الملعب</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل لوحة النتيجة في الملعب: كلما سُجّل هدف تغيّر الرقم وتحدّثت اللوحة تلقائيًا. المباراة نفسها، والنتيجة وحدها تغيّرت.</p>
+              <p class="entry__text">الحالة (State) بيانات يحتفظ بها المكوّن وتتغيّر مع الوقت (كعدد النقرات على زر). وحين تتغيّر، يعيد React رسم المكوّن تلقائيًا.</p>
+              <label class="got"><input type="checkbox" data-got="state"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const [goals, setGoals] = useState(0);
+
+&lt;button onClick={() =&gt; setGoals(goals + 1)}&gt;
+  Goals: {goals}
+&lt;/button&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="props" data-cat="front" data-terms="Props properties proprietes react parent enfant child الخصائص طلبية رئيس الطهاة" data-reveal>
+          <summary>
+            <span class="entry__term">الخصائص<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Props</span></span>
+            <span class="entry__scene">مثل طلبية رئيس الطهاة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل الطلبية التي يسلّمك إياها رئيس الطهاة في المطعم: «ثلاثة طواجين باللحم». تطبخ ما طُلب منك ولا تغيّر الطلبية.</p>
+              <p class="entry__text">الخصائص (Props) قيم يمرّرها المكوّن الأب إلى المكوّن الابن. يقرؤها الابن ولا يغيّرها أبدًا، وإن لزم تغيير فالأب هو من يتولّاه.</p>
+              <label class="got"><input type="checkbox" data-got="props"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>function Tagine({ kind, count }) {
+  return &lt;p&gt;{count} × {kind}&lt;/p&gt;;
+}
+
+&lt;Tagine kind="لحم بالبرقوق" count={3} /&gt;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="useeffect" data-cat="front" data-terms="useEffect hook react effet effect lifecycle useEffect ضوء كل غرفة" data-reveal>
+          <summary>
+            <span class="entry__term">useEffect<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل ضوء كل غرفة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل إشعال الضوء حين تدخل غرفة: لا تضغط على الزر كل دقيقة، بل فقط حين تنتقل إلى غرفة أخرى.</p>
+              <p class="entry__text">useEffect خطّاف (hook) في React ينفّذ عملًا بعد ظهور المكوّن: جلب بيانات من واجهة برمجة، أو تشغيل مؤقّت… وتحدّد مصفوفة الاعتماديات متى يُعاد تنفيذه.</p>
+              <label class="got"><input type="checkbox" data-got="useeffect"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>React</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>useEffect(() =&gt; {
+  fetch("/api/terms")
+    .then((r) =&gt; r.json())
+    .then(setTerms);
+}, []);</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="data" aria-labelledby="g-data">
+        <h3 class="group__head" id="g-data">البيانات</h3>
+        <details class="entry" id="database" data-cat="data" data-terms="Database base de donnees bdd db postgres mysql قاعدة البيانات أرشيف الجماعة" data-reveal>
+          <summary>
+            <span class="entry__term">قاعدة البيانات<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Database</span></span>
+            <span class="entry__scene">مثل أرشيف الجماعة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أرشيف الجماعة: كل ملف في مكانه برقمه، فيجد الموظف ملفّك في دقيقة لأن كل شيء مرتّب.</p>
+              <p class="entry__text">قاعدة البيانات مكان منظّم لتخزين البيانات، يتيح قراءتها وإضافتها وتعديلها وحذفها بسرعة، حتى لو بلغت ملايين الأسطر.</p>
+              <label class="got"><input type="checkbox" data-got="database"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>CREATE TABLE terms (
+  id       INT PRIMARY KEY,
+  name     TEXT,
+  category TEXT
+);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="sql" data-cat="data" data-terms="SQL select where query requete SQL طلبك من البقّال" data-reveal>
+          <summary>
+            <span class="entry__term">SQL<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل طلبك من البقّال</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أن تقول للبقّال: «أعطني كل الخضر التي ثمنها أقل من 10 دراهم». أنت تقول ما تريد، وهو يعرف أين يجده.</p>
+              <p class="entry__text">SQL لغة التخاطب مع قاعدة بيانات علائقية: تحدّد ما تريد (SELECT)، ومن أين (FROM)، وبأيّ شرط (WHERE).</p>
+              <label class="got"><input type="checkbox" data-got="sql"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>SELECT name, price
+FROM vegetables
+WHERE price &lt; 10
+ORDER BY price;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="sql-join" data-cat="data" data-terms="SQL JOIN join jointure inner join left join الربط في SQL دفتر ديون البقّال" data-reveal>
+          <summary>
+            <span class="entry__term">الربط في SQL<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">SQL JOIN</span></span>
+            <span class="entry__scene">مثل دفتر ديون البقّال</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل دفتر ديون البقّال: في صفحة أسماء الجيران وأرقام بيوتهم، وفي صفحة أخرى الديون حسب رقم البيت. يجمع JOIN بينهما: من المدين وبكم.</p>
+              <p class="entry__text">JOIN يجمع أسطر جدولين (أو أكثر) اعتمادًا على عمود مشترك. يحتفظ INNER JOIN بما يوجد في الجدولين معًا، ويحتفظ LEFT JOIN بكل ما في الجدول الأيسر.</p>
+              <label class="got"><input type="checkbox" data-got="sql-join"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>SELECT neighbours.name, credit.amount
+FROM neighbours
+JOIN credit ON credit.house_id = neighbours.house_id;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="primary-key" data-cat="data" data-terms="Primary key cle primaire id pk unique المفتاح الأساسي رقم البطاقة الوطنية" data-reveal>
+          <summary>
+            <span class="entry__term">المفتاح الأساسي<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Primary key</span></span>
+            <span class="entry__scene">مثل رقم البطاقة الوطنية</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل رقم البطاقة الوطنية: كثيرون اسمهم محمد العلوي، لكن لا يشترك اثنان في الرقم نفسه، وبه تعرف من هو بالضبط.</p>
+              <p class="entry__text">المفتاح الأساسي عمود (أو أكثر) يميّز كل سطر في الجدول تمييزًا فريدًا. لا يتكرّر ولا يكون فارغًا.</p>
+              <label class="got"><input type="checkbox" data-got="primary-key"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>SQL</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>CREATE TABLE neighbours (
+  house_id INT PRIMARY KEY,
+  name     TEXT NOT NULL
+);</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="orm" data-cat="data" data-terms="ORM prisma sequelize typeorm django object relational mapping ORM الترجمان في المحكمة" data-reveal>
+          <summary>
+            <span class="entry__term">ORM<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل الترجمان في المحكمة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل الترجمان في المحكمة: تتكلّم بلغتك، فيترجم للقاضي، ثم ينقل إليك الجواب بلغتك.</p>
+              <p class="entry__text">ORM مكتبة تتيح لك التعامل مع قاعدة البيانات بكائنات لغتك (JavaScript أو Python…) دون كتابة SQL بيدك، فهي تتولّى الترجمة إلى SQL.</p>
+              <label class="got"><input type="checkbox" data-got="orm"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const terms = await prisma.term.findMany({
+  where: { category: "Git" },
+});</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="devops" aria-labelledby="g-devops">
+        <h3 class="group__head" id="g-devops">DevOps</h3>
+        <details class="entry" id="docker" data-cat="devops" data-terms="Docker dockerfile image conteneur container Docker حاويات ميناء طنجة المتوسط" data-reveal>
+          <summary>
+            <span class="entry__term">Docker<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل حاويات ميناء طنجة المتوسط</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل الحاويات في ميناء طنجة المتوسط: أيًّا كان ما بداخلها، فلها المقاس نفسه، وترفعها الرافعة نفسها، وتُشحن على أيّ سفينة.</p>
+              <p class="entry__text">Docker يحزم تطبيقك مع كل ما يحتاجه (إصدار Node والمكتبات والإعدادات) في صورة واحدة، تعمل بالطريقة نفسها على أيّ جهاز.</p>
+              <label class="got"><input type="checkbox" data-got="docker"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>Dockerfile</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>FROM node:20-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "server.js"]</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="container" data-cat="devops" data-terms="Container conteneur docker run image الحاوية البغرير من وصفة واحدة" data-reveal>
+          <summary>
+            <span class="entry__term">الحاوية<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Container</span></span>
+            <span class="entry__scene">مثل البغرير من وصفة واحدة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">إن كانت الصورة هي وصفة البغرير، فالحاوية هي البغرير المطهوّ أمامك. وصفة واحدة، وما شئت من البغرير.</p>
+              <p class="entry__text">الحاوية نسخة قيد التشغيل من صورة Docker. يمكنك تشغيل حاويات كثيرة من الصورة نفسها، كلٌّ منها معزول عن الأخرى.</p>
+              <label class="got"><input type="checkbox" data-got="container"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>docker build -t my-app .
+docker run -p 3000:3000 my-app
+docker ps</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="env-variable" data-cat="devops" data-terms="Environment variable env .env secret config متغيّر البيئة كلمة سرّ الويفي في المقهى" data-reveal>
+          <summary>
+            <span class="entry__term">متغيّر البيئة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Environment variable</span></span>
+            <span class="entry__scene">مثل كلمة سرّ الويفي في المقهى</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل كلمة سرّ الويفي في المقهى: لا تُطبع في القائمة التي يقرؤها الجميع، بل تسأل عنها النادل. القائمة نفسها، والكلمة قد تتغيّر.</p>
+              <p class="entry__text">متغيّر البيئة قيمة تُحفظ خارج الكود (ككلمة سرّ قاعدة البيانات أو مفتاح API) كي لا تنتهي على GitHub، ويمكن أن تتغيّر حسب البيئة (dev أو prod).</p>
+              <label class="got"><input type="checkbox" data-got="env-variable"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code><span class="c">// .env (لا تضعه أبدًا في git)</span>
+<span class="c">// DATABASE_URL=postgres://localhost/mydb</span>
+
+const url = process.env.DATABASE_URL;</code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="deploy" data-cat="devops" data-terms="Deploy deploiement deployment hosting github pages النشر حريرة رمضان للجيران" data-reveal>
+          <summary>
+            <span class="entry__term">النشر<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Deploy</span></span>
+            <span class="entry__scene">مثل حريرة رمضان للجيران</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل أن تطبخ الحريرة في البيت وتوزّعها على الجيران في رمضان: كانت لك وحدك، والآن يستطيع الجميع أن يأخذ منها.</p>
+              <p class="entry__text">النشر هو وضع الكود على خادم ليصبح الموقع أو التطبيق متاحًا للناس على الإنترنت، لا على حاسوبك فقط.</p>
+              <label class="got"><input type="checkbox" data-got="deploy"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>الطرفية</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>npm run build
+git push origin main
+<span class="c"># ينشر GitHub Pages الموقع تلقائيًا</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="ci-cd" data-cat="devops" data-terms="CI/CD ci cd github actions pipeline integration continue التكامل والنشر المستمرّان الفحص التقني للسيارة" data-reveal>
+          <summary>
+            <span class="entry__term">التكامل والنشر المستمرّان<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">CI/CD</span></span>
+            <span class="entry__scene">مثل الفحص التقني للسيارة</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل الفحص التقني قبل أن تعود سيارتك إلى الطريق: إن نجح كل شيء تسلّمت الورقة وانطلقت، وإلّا أصلحت العطب أولًا.</p>
+              <p class="entry__text">CI/CD أتمتة: كلما دفعت كودًا (push)، تُشغَّل الاختبارات تلقائيًا (CI)، وإن نجح كل شيء انتقل الكود إلى الإنتاج تلقائيًا (CD).</p>
+              <label class="got"><input type="checkbox" data-got="ci-cd"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>YAML</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm test</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="group" data-group="security" aria-labelledby="g-security">
+        <h3 class="group__head" id="g-security">الأمان</h3>
+        <details class="entry" id="jwt" data-cat="security" data-terms="JWT json web token jeton bearer login JWT سوار مهرجان موازين" data-reveal>
+          <summary>
+            <span class="entry__term">JWT<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span></span>
+            <span class="entry__scene">مثل سوار مهرجان موازين</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل سوار مهرجان موازين: حين يراه الحارس في معصمك يُدخلك دون أن يسألك عن اسمك، ولا يمكنك تزويره لأنه يحمل ختمًا خاصًّا.</p>
+              <p class="entry__text">JWT (JSON Web Token) رمز موقَّع يمنحك إياه الخادم عند تسجيل الدخول. ترسله مع كل طلب، فيتحقّق الخادم من التوقيع دون الرجوع إلى قاعدة البيانات.</p>
+              <label class="got"><input type="checkbox" data-got="jwt"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const token = jwt.sign({ id: 42 }, process.env.JWT_SECRET, {
+  expiresIn: "1h",
+});
+<span class="c">// Authorization: Bearer &lt;token&gt;</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="hashing" data-cat="security" data-terms="Hashing hash bcrypt argon2 password mot de passe salt التجزئة عصير الليمون" data-reveal>
+          <summary>
+            <span class="entry__term">التجزئة<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Hashing</span></span>
+            <span class="entry__scene">مثل عصير الليمون</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">مثل عصير الليمون: من الليمونة تستخرج العصير، لكنك لا تستطيع أن تستعيد الليمونة من العصير، والليمونة نفسها تعطي دائمًا المذاق نفسه.</p>
+              <p class="entry__text">التجزئة (Hashing) تحوّل نصًّا (ككلمة سرّ) إلى سلسلة ثابتة من الحروف لا يمكن استرجاع النص الأصلي منها. وتُخزَّن كلمات السرّ دائمًا مجزّأةً مع ملح (bcrypt أو argon2).</p>
+              <label class="got"><input type="checkbox" data-got="hashing"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>const hash = await bcrypt.hash("password123", 10);
+const ok = await bcrypt.compare("password123", hash);
+<span class="c">// ok === true</span></code></pre>
+            </figure>
+          </div>
+        </details>
+        <details class="entry" id="auth" data-cat="security" data-terms="Authentication / authorization auth authn authz login permission role 401 403 المصادقة والتفويض جواز السفر وبطاقة الصعود" data-reveal>
+          <summary>
+            <span class="entry__term">المصادقة والتفويض<span class="check" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span class="visually-hidden">فهمته</span></span><span class="entry__en" lang="en" dir="ltr">Authentication / authorization</span></span>
+            <span class="entry__scene">مثل جواز السفر وبطاقة الصعود</span>
+          </summary>
+          <div class="entry__body">
+            <div class="entry__words">
+              <p class="entry__like">في مطار محمد الخامس: عند المراقبة يتحقّقون من جواز سفرك (من أنت)، وعند باب الطائرة يتحقّقون من بطاقة الصعود (هل يحقّ لك ركوب هذه الطائرة).</p>
+              <p class="entry__text">المصادقة تتحقّق من هويتك (تسجيل الدخول بالبريد الإلكتروني وكلمة السرّ)، والتفويض يحدّد ما يحقّ لك فعله بعد ذلك (المشرف يستطيع الحذف، والمستخدم العادي لا).</p>
+              <label class="got"><input type="checkbox" data-got="auth"> فهمت</label>
+            </div>
+            <figure class="code" dir="ltr">
+              <figcaption>JavaScript</figcaption>
+              <button class="code__copy" type="button">نسخ</button>
+              <pre tabindex="0" data-lenis-prevent><code>if (!req.user) return res.status(401).end();      <span class="c">// authentication</span>
+if (req.user.role !== "admin") {
+  return res.status(403).end();                    <span class="c">// authorization</span>
+}</code></pre>
+            </figure>
+          </div>
+        </details>
+      </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+      <p class="footer__mark"><a class="wordmark" href="./" aria-label="Qamous Dev، القاموس" dir="ltr">Qamous Dev</a></p>
+      <p class="footer__line">قاموس مفتوح للبرمجة، للمبتدئين في المغرب.</p>
+      <ul class="footer__links">
+          <li><a href="./" aria-current="page"><span>القاموس</span></a></li>
+          <li><a href="path.html"><span>المسار</span></a></li>
+          <li><a href="quiz.html"><span>اختبر نفسك</span></a></li>
+          <li><a href="contribute.html"><span>أضف كلمة</span></a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="tabbar" aria-label="القائمة الرئيسية">
+    <ul>
+          <li><a href="./" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>القاموس</span></a></li>
+          <li><a href="path.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><span>المسار</span></a></li>
+          <li><a href="quiz.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span>اختبر نفسك</span></a></li>
+          <li><a href="contribute.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg><span>أضف كلمة</span></a></li>
+    </ul>
+  </nav>
+
+  <script type="application/json" id="ui">{"hint":"انقر على أيّ مصطلح لفتحه.","count":{"zero":"لا مصطلحات","one":"مصطلح واحد","two":"مصطلحان","few":"{n} مصطلحات","many":"{n} مصطلحًا","other":"{n} مصطلح"},"inCat":" في {cat}","forQ":" عن «{q}»","empty":"لا يوجد مصطلح يطابق «{q}».","progress":"فهمت {n} من {total}","stage":"{n} من {total}","copied":"تم النسخ","copyFail":"تعذّر النسخ","score":"الإجابات الصحيحة: {right} من {total}","right":"صحيح: {term}.","wrong":"ليس تمامًا. الجواب هو {term}.","lang":"ar","total":40}</script>
+  <script src="../js/vendor/lenis.min.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+</html>

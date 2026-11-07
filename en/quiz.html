@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test yourself, Qamous Dev</title>
+  <meta name="description" content="Which term does this scene describe? Pick an answer, then move on to the next scene.">
+  <link rel="canonical" href="https://elfarisssaid19.github.io/qamous-dev/en/quiz.html">
+  <link rel="alternate" hreflang="ar" href="https://elfarisssaid19.github.io/qamous-dev/ar/quiz.html">
+  <link rel="alternate" hreflang="fr" href="https://elfarisssaid19.github.io/qamous-dev/fr/quiz.html">
+  <link rel="alternate" hreflang="en" href="https://elfarisssaid19.github.io/qamous-dev/en/quiz.html">
+  <link rel="alternate" hreflang="x-default" href="https://elfarisssaid19.github.io/qamous-dev/ar/quiz.html">
+  <meta property="og:site_name" content="Qamous Dev">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Test yourself, Qamous Dev">
+  <meta property="og:description" content="Which term does this scene describe? Pick an answer, then move on to the next scene.">
+  <meta property="og:url" content="https://elfarisssaid19.github.io/qamous-dev/en/quiz.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_MA">
+  <meta property="og:locale:alternate" content="fr_MA">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f1efe9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0c18" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="page-quiz">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob--majorelle"></span>
+    <span class="blob blob--saffron"></span>
+    <span class="blob blob--mint"></span>
+    <span class="blob blob--sky"></span>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main menu">
+      <a class="wordmark" href="./" aria-label="Qamous Dev, dictionary" dir="ltr">Qamous Dev</a>
+      <div class="nav__rows">
+        <ul class="nav__links">
+          <li><a href="./"><span>Dictionary</span></a></li>
+          <li><a href="path.html"><span>Path</span></a></li>
+          <li><a href="quiz.html" aria-current="page"><span>Test yourself</span></a></li>
+          <li><a href="contribute.html"><span>Add a term</span></a></li>
+        </ul>
+        <ul class="langs" aria-label="Language">
+          <li><a href="../ar/quiz.html" hreflang="ar" lang="ar" dir="rtl">العربية</a></li>
+          <li><a href="../fr/quiz.html" hreflang="fr" lang="fr" dir="ltr">Français</a></li>
+          <li><a href="../en/quiz.html" hreflang="en" lang="en" dir="ltr" aria-current="page">English</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-head" data-reveal>
+      <h1 class="page-head__title">Which term does this scene describe?</h1>
+      <p class="page-head__lede">Pick an answer, then move on to the next scene.</p>
+      <p class="quiz__score" id="quiz-score" aria-live="polite"></p>
+      </div>
+    </div>
+    <section class="quiz container" aria-label="Test yourself">
+      <p class="quiz__nojs">This quiz needs JavaScript.</p>
+      <div class="quiz__card" id="quiz" data-reveal hidden>
+        <p class="quiz__scene" id="quiz-scene"></p>
+        <ul class="quiz__choices" id="quiz-choices" aria-labelledby="quiz-scene"></ul>
+        <p class="quiz__feedback" id="quiz-feedback" aria-live="polite"></p>
+        <button class="btn" type="button" id="quiz-next">Next scene</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+      <p class="footer__mark"><a class="wordmark" href="./" aria-label="Qamous Dev, dictionary" dir="ltr">Qamous Dev</a></p>
+      <p class="footer__line">An open dictionary of programming, for beginners in Morocco.</p>
+      <ul class="footer__links">
+          <li><a href="./"><span>Dictionary</span></a></li>
+          <li><a href="path.html"><span>Path</span></a></li>
+          <li><a href="quiz.html" aria-current="page"><span>Test yourself</span></a></li>
+          <li><a href="contribute.html"><span>Add a term</span></a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="tabbar" aria-label="Main menu">
+    <ul>
+          <li><a href="./"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Dictionary</span></a></li>
+          <li><a href="path.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><span>Path</span></a></li>
+          <li><a href="quiz.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><span>Test yourself</span></a></li>
+          <li><a href="contribute.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg><span>Add a term</span></a></li>
+    </ul>
+  </nav>
+
+  <script type="application/json" id="ui">{"hint":"Click any term to open it.","count":{"one":"{n} term","other":"{n} terms"},"inCat":" in {cat}","forQ":" for “{q}”","empty":"No term matches “{q}”.","progress":"Got it: {n} of {total}","stage":"{n} of {total}","copied":"Copied","copyFail":"Copy failed","score":"Correct: {right} of {total}","right":"Correct: {term}.","wrong":"Not quite. The answer is {term}.","lang":"en","total":40}</script>
+  <script type="application/json" id="terms">[{"id":"variable","cat":"basics","name":"Variable","scene":"Like the sugar jar in the kitchen"},{"id":"function","cat":"basics","name":"Function","scene":"Like the msemmen seller"},{"id":"loop","cat":"basics","name":"Loop","scene":"Like the water seller in Jemaa el-Fna"},{"id":"array","cat":"basics","name":"Array","scene":"Like the seats of a grand taxi"},{"id":"bug","cat":"basics","name":"Bug","scene":"Like the shopping list missing a word"},{"id":"async-await","cat":"basics","name":"Async/await","scene":"Like clothes at the dry cleaner’s"},{"id":"git","cat":"git","name":"Git","scene":"Like the class logbook at school"},{"id":"repository","cat":"git","name":"Repository","scene":"Like the family photo album"},{"id":"commit","cat":"git","name":"Commit","scene":"Like a photo of the tagine at each step"},{"id":"branch","cat":"git","name":"Branch","scene":"Like a side alley in the old medina"},{"id":"merge","cat":"git","name":"Merge","scene":"Like two seamstresses on one caftan"},{"id":"pull-request","cat":"git","name":"Pull request","scene":"Like a request to the moqaddem"},{"id":"clone","cat":"git","name":"Clone","scene":"Like grandma’s harira recipe"},{"id":"http","cat":"web","name":"HTTP","scene":"Like a letter at the post office"},{"id":"api","cat":"web","name":"API","scene":"Like the café waiter"},{"id":"rest","cat":"web","name":"REST","scene":"Like the café menu"},{"id":"json","cat":"web","name":"JSON","scene":"Like mum’s shopping list"},{"id":"endpoint","cat":"web","name":"Endpoint","scene":"Like the counters at the town hall"},{"id":"status-code","cat":"web","name":"Status code","scene":"Like the shopkeeper’s answer"},{"id":"cors","cat":"web","name":"CORS","scene":"Like the residence guard"},{"id":"html","cat":"front","name":"HTML","scene":"Like the walls of a house"},{"id":"css","cat":"front","name":"CSS","scene":"Like paint and zellige"},{"id":"dom","cat":"front","name":"DOM","scene":"Like the family tree"},{"id":"component","cat":"front","name":"Component","scene":"Like the brick mould"},{"id":"state","cat":"front","name":"State","scene":"Like the stadium scoreboard"},{"id":"props","cat":"front","name":"Props","scene":"Like the chef’s order"},{"id":"useeffect","cat":"front","name":"useEffect","scene":"Like the light in each room"},{"id":"database","cat":"data","name":"Database","scene":"Like the town hall archive"},{"id":"sql","cat":"data","name":"SQL","scene":"Like asking the shopkeeper"},{"id":"sql-join","cat":"data","name":"SQL JOIN","scene":"Like the shopkeeper’s credit notebook"},{"id":"primary-key","cat":"data","name":"Primary key","scene":"Like the national ID number"},{"id":"orm","cat":"data","name":"ORM","scene":"Like the court interpreter"},{"id":"docker","cat":"devops","name":"Docker","scene":"Like the containers at Tanger Med"},{"id":"container","cat":"devops","name":"Container","scene":"Like baghrir from one recipe"},{"id":"env-variable","cat":"devops","name":"Environment variable","scene":"Like the café wifi password"},{"id":"deploy","cat":"devops","name":"Deploy","scene":"Like Ramadan harira for the neighbours"},{"id":"ci-cd","cat":"devops","name":"CI/CD","scene":"Like the car’s technical inspection"},{"id":"jwt","cat":"security","name":"JWT","scene":"Like the Mawazine wristband"},{"id":"hashing","cat":"security","name":"Hashing","scene":"Like lemon juice"},{"id":"auth","cat":"security","name":"Authentication / authorization","scene":"Like passport and boarding pass"}]</script>
+  <script src="../js/vendor/lenis.min.js" defer></script>
+  <script src="../js/app.js" defer></script>
+</body>
+</html>
